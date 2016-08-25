@@ -1,0 +1,22 @@
+<div class="pages">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="sin-blog-post">
+                    <div class="blog-details">
+                        <h2 class="title">
+                            {{blogs.title}}
+                        </h2>
+                        <div class="blog-meta">
+                            {{blogs.date_posted}}
+                        </div>
+                        <p>
+                            <div ng-bind-html="blogs.content">
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

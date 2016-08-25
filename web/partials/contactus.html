@@ -1,0 +1,105 @@
+<div class="pages">
+    <h1>
+        CONTACT US
+    </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel-body">
+                    <form action="" class="form-horizontal" method="post" name="contactform" ng-submit="submit(contactform)" role="form">
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+                            <label class="col-lg-2 control-label" for="inputName">
+                                Name
+                            </label>
+                            <div class="col-lg-10">
+                                <input class="form-control" id="inputName" name="inputName" ng-model="formData.inputName" placeholder="Your name" required="" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+                            <label class="col-lg-2 control-label" for="inputEmail">
+                                Email
+                            </label>
+                            <div class="col-lg-10">
+                                <input class="form-control" id="inputEmail" name="inputEmail" ng-model="formData.inputEmail" placeholder="Your Email" required="" type="email">
+                                </input>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputSubject.$invalid && submitted }">
+                            <label class="col-lg-2 control-label" for="inputSubject">
+                                Subject
+                            </label>
+                            <div class="col-lg-10">
+                                <input class="form-control" id="inputSubject" name="inputSubject" ng-model="formData.inputSubject" placeholder="Subject" required="" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+                            <label class="col-lg-2 control-label" for="inputMessage">
+                                Message
+                            </label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" id="inputMessage" name="inputMessage" ng-model="formData.inputMessage" placeholder="Your message..." required="" rows="4">
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-default" ng-disabled="submitButtonDisabled" type="submit">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <p ng-class="result" style="padding: 15px; margin: 0;">
+                        {{ resultMessage }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h2>
+                    Mailing Address
+                </h2>
+                <p>
+                    <strong>
+                        Camdy Global Sdn Bhd
+                    </strong>
+                    <br/>
+                    No. 43A, Jalan TSB 10A,
+                    <br/>
+                    Taman Industri Sungai Buloh,
+                    <br/>
+                    47000, Sungai Buloh,
+                    <br/>
+                    Selangor, Malaysia.
+                </p>
+            </div>
+            <div class="col-md-3">
+                <h2>
+                    Follow us :-
+                </h2>
+                <a href="http://www.facebook.com/camdy.photo">
+                    <i class="fa fa-facebook-official fa-4x">
+                    </i>
+                </a>
+                <a href="https://www.instagram.com/camdy.photo/">
+                    <i class="fa fa-instagram fa-4x">
+                    </i>
+                </a>
+                <a href="https://twitter.com/camdy_photo">
+                    <i class="fa fa-twitter-square fa-4x ">
+                    </i>
+                </a>
+                <p>
+                    <i aria-hidden="true" class="fa fa-phone-square fa-2x">
+                    </i>
+                    +603-2776 4836
+                    <br/>
+                    <i aria-hidden="true" class="fa fa-envelope fa-2x">
+                    </i>
+                    hello@camdy.photo
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
