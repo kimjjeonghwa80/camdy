@@ -5,7 +5,8 @@ angular.module('myApp', [
     'ui.bootstrap',
     'app.controller',
     'app.directive',
-    'ui.router.metatags'
+    'ui.router.metatags',
+    'ngResource'
     ])
 .config(['$stateProvider', '$urlRouterProvider','UIRouterMetatagsProvider', function($stateProvider, $urlRouterProvider, UIRouterMetatagsProvider){
 
@@ -31,8 +32,6 @@ UIRouterMetatagsProvider
             })
         .setOGURL(true);
 
-
-
                 // For any unmatched url, send to /business
                 $urlRouterProvider.otherwise("blog")
                  
@@ -40,8 +39,26 @@ UIRouterMetatagsProvider
                         .state('printshop', { //State demonstrating Nested views
                             url: "/printshop",
                             templateUrl: "partials/printshop.html",
-                            controller: "printshopCtrl"
+                            controller: "printshopCtrl",
+                              metaTags: {
+                                        title: 'Printshop',
+                                        keywords: keywords
+                                      }
+
                         })
+                        .state('printshopCategory', { //State demonstrating Nested views
+                            url: "/printshopCategory/:category",
+                            templateUrl: "partials/printshop_category.html",
+                            controller: "printshopCategoryCtrl"
+                        })
+
+                        .state('printshopDetail', { //State demonstrating Nested views
+                            url: "/printshopDetail/:category/:product",
+                            templateUrl: "partials/printshop_detail.html",
+                            controller: "printshopDetailCtrl"
+                        })
+       
+
                         .state('contactus', { 
                             url: "/contactus",
                             templateUrl: "partials/contactus.html",
@@ -75,7 +92,6 @@ UIRouterMetatagsProvider
                                         keywords: keywords
                                       }
                            
-
                         })
                        .state('portfolio', {  //State demonstrating Multiple,named views
                             url: "/portfolio",

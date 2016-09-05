@@ -1,8 +1,9 @@
+var API_URL = "http://localhost:8000/";
+var API_URL = "https://api.dropp.photo/"; 
+
 angular.module('app.controller', [])
 
-    .controller("printshopCtrl", function($scope) {
-        $scope.msg = "Angular Printshop";
-    }).controller('blogCtrl', function($scope, $http) {
+    .controller('blogCtrl', function($scope, $http) {
         $http({
             method: "GET",
             url: "../laravel/public/api/v1/blogs"
@@ -63,3 +64,38 @@ angular.module('app.controller', [])
         }
     }
 })
+    .controller('printshopCtrl', function($scope, $http) {
+        $http({
+            method: "GET",
+            url: API_URL + "merchandise/?order=sort"
+        }).then(function mySuccess(response) {
+            $scope.products = response.data;
+        }, function myError(response) {
+            $scope.products = response.status + response.statusText;
+        });
+        $scope.msg = "PrintShop";
+    })    
+
+     .controller('printshopCategoryCtrl', function($scope,  $stateParams, $http) {
+         $http({
+            method: "GET",
+            url: API_URL + "merchandise/" + $stateParams.category
+        }).then(function mySuccess(response) {
+            $scope.products = response.data;
+        }, function myError(response) {
+            $scope.products = response.status + response.statusText;
+        });
+        $scope.msg = "PrintShop Detail";
+    })  
+
+         .controller('printshopDetailCtrl', function($scope,  $stateParams, $http, $state) {
+         $http({
+            method: "GET",
+            url: API_URL + "merchandise/" +  $state.current + "/" + $stateParams.product 
+        }).then(function mySuccess(response) {
+            $scope.products = response.data;
+        }, function myError(response) {
+            $scope.products = response.status + response.statusText;
+        });
+        $scope.msg = "PrintShop View";
+    })          
