@@ -93,6 +93,7 @@ UIRouterMetatagsProvider
                                       }
                            
                         })
+/*
                        .state('portfolio', {  //State demonstrating Multiple,named views
                             url: "/portfolio",
                             views: {
@@ -105,6 +106,7 @@ UIRouterMetatagsProvider
                                 }
                             }
                         })
+*/
 }])
 .run(['$rootScope', 'MetaTags', function($rootScope, MetaTags){
     
