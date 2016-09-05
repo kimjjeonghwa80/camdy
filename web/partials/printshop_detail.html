@@ -11,7 +11,7 @@
 						<!-- Product Image Tab container -->
 						<div class="pro-image-tab-container tab-content fix">
 							<!-- Product Image Tab -->
-							<div class="pro-image-tab tab-pane active" id="image-1">
+							<div class="pro-image-tab tab-pane active" id="image-1" >
 								<img src="img/pro-details-2/big-1.jpg" alt="" />
 							</div>
 							<div class="pro-image-tab tab-pane" id="image-2">
@@ -36,7 +36,7 @@
 					<div class="col-md-6 col-xs-12">
 						<div class="product-info-2 fix">
 							<!-- Product Info Cat -->
-							<div class="pro-info-cat-2"><p>{{msg}}</p></div>
+							<div class="pro-info-cat-2"><p>{{product.name}}</p></div>
 							<!-- Product Info Title Ratting -->
 							<div class="pro-info-title-2 fix">
 								<h2>{{product.sizes[0].pk}}</h2>
@@ -63,28 +63,25 @@
 									</div>
 								</div>
 							</div>
-							<div class="pro-info-des-2">
-								<p>Lorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod empor incididunt oloremque laudantium, Eos qui ratione voluptatem sequi. Neque porro quisquam est, et dolore.</p>
+							<div class="pro-info-des-2"  >
+								<p  ng-bind-html="deliberatelyTrustDangerousSnippet(product.description)"></p>
 							</div>
 							<div class="pro-color-size pro-color-size-2">
 								<div class="pro-color pro-color-2">
 									<h4>Colors:</h4>
 									<ul>
-										<li><a href="#">color 1</a></li>
-										<li><a href="#">color 2</a></li>
-										<li><a href="#">color 3</a></li>
-										<li><a href="#">color 4</a></li>
-										<li><a href="#">color 5</a></li>
+										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a href="#" >color 1</a></li>
+										
 									</ul>
 								</div>
 								<div class="pro-size pro-size-2">
-									<h4>Sizes:</h4>
+									<h4>Sizes: </h4>
 									<ul>
-										<li><a href="#">s</a></li>
-										<li><a href="#">m</a></li>
-										<li><a href="#">l</a></li>
-										<li><a href="#">xl</a></li>
-										<li><a href="#">xxl</a></li>
+										<li><a ng-click="setCurrentSize(product.sizes.S)">s</a></li>
+										<li><a ng-click="setCurrentSize(product.sizes.M)">m</a></li>
+										<li><a ng-click="setCurrentSize(product.sizes.L)">l</a></li>
+										<li><a ng-click="setCurrentSize(product.sizes.XL)">xl</a></li>
+										<li><a ng-click="setCurrentSize(product.sizes.XXL)">xxl</a></li>
 									</ul>
 								</div>
 							</div>
@@ -101,3 +98,5 @@
 		</div>
 	</div>
 </div>
+
+

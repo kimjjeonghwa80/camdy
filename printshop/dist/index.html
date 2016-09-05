@@ -118,7 +118,6 @@
 
                         <div id="designer-holder" ng-style="{ 'top' : calcLeft(designerHeight * zoom, designerHeight), 'left' : calcLeft(designerWidth * zoom, designerWidth), 'width' : designerWidth * zoom, 'height' : designerHeight * zoom }">
                             <img ng-src="{{imageUrl( {product:currentItem.product.slug, w:designerWidth, h:designerHeight, variant:currentItem.variant.slug, orientation:selectedOrientation} )}}"/>
-
                         </div>
 
                         <div id="designer-transparency" ng-hide="true" ng-style="{ 'top' : calcLeft(designerHeight * zoom, designerHeight), 'left' : calcLeft(designerWidth * zoom, designerWidth), 'width' : designerWidth * zoom, 'height' : designerHeight * zoom }">
@@ -143,9 +142,8 @@
                         <div class="row">
                             <div class="col-xs-3 col-md-3" ng-repeat="orientation in currentItem.product.orientations" >
                                 <a href="" ng-click="setOrientation(orientation.name)" class="thumbnail orientation-thumbnail" ng-class="{active: selectedOrientation == orientation.name}" >
-                                    <img ng-src="{{ imageUrl( {product:currentItem.product.slug, w:75, h:75, variant:currentItem.variant.slug, orientation:orientation.name} ) }}" spinner-on-load  style='margin-bottom: 10px;'/> {{orientation.name}} 
+                                    <img ng-src="{{ imageUrl( {product:currentItem.product.slug, w:75, h:75, variant:currentItem.variant.slug, orientation:orientation.name} ) }}" spinner-on-load />
                                 </a>
-
                             </div>
                         </div>
 
