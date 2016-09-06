@@ -18,6 +18,7 @@
     "merge-stream": "1.0.0"
   },
   "dependencies": {
-    "ui-navbar": "^0.4.3"
+    "ui-navbar": "^0.4.3",
+    "ui-router-metatags": "^1.0.0"
   }
 }
