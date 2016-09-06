@@ -69,11 +69,7 @@
 								<div class="pro-size pro-size-2">
 									<h4>Sizes: </h4>
 									<ul>
-										<li><a ng-click="setCurrentSize(product.sizes.S)">s</a></li>
-										<li><a ng-click="setCurrentSize(product.sizes.M)">m</a></li>
-										<li><a ng-click="setCurrentSize(product.sizes.L)">l</a></li>
-										<li><a ng-click="setCurrentSize(product.sizes.XL)">xl</a></li>
-										<li><a ng-click="setCurrentSize(product.sizes.XXL)">xxl</a></li>
+										<li ng-repeat="(key, data) in product.sizes"><a ng-click="setCurrentSize(product.sizes[key])" >{{key}}</a></li>
 									</ul>
 								</div>
 							</div>

@@ -92,7 +92,7 @@ angular.module('app.controller', [])
       url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
     }).then(function mySuccess (response) {
       $scope.product = response.data[0];
-      $scope.currentSize = $scope.product.sizes.S;  
+      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]];  
      $scope.activeImage = $scope.product.images[0];
           
     }, function myError (response) {
@@ -100,7 +100,8 @@ angular.module('app.controller', [])
     })
 
     $scope.setCurrentSize = function (item) {
-      $scope.currentSize = item
+      console.log(item);
+      $scope.currentSize = item;
     }
 
     $scope.getColor = function (color) {
