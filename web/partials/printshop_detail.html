@@ -11,32 +11,24 @@
 						<!-- Product Image Tab container -->
 						<div class="pro-image-tab-container tab-content fix">
 							<!-- Product Image Tab -->
-							<div class="pro-image-tab tab-pane active" id="image-1" >
+							<div class="pro-image-tab tab-pane active" id="image-1">
 								<img src="{{activeImage}}" alt="" />
 							</div>
-							<!--<div class="pro-image-tab tab-pane" id="image-2">
-								<img src="{{product.images[1]}}" alt="" />
-							</div>
-							<div class="pro-image-tab tab-pane" id="image-3">
-								<img src="{{product.images[2]}}" alt="" />
-							</div>
-							<div class="pro-image-tab tab-pane" id="image-4">
-								<img src="{{product.images[3]}}" alt="" />
-							</div>-->
 						</div>
 						<!-- Product Image Tab List -->
 						<ul class="pro-image-tab-list-2">
-							<li  ng-repeat="img in product.images track by $index" ng-class="{active: activeImage== img}" ng-click="setActiveImage(img)"><a  data-toggle="tab"><img src="{{img}}" alt="" /></a></li>
-							<!--<li><a href="#image-2" data-toggle="tab"><img src="img/pro-details-2/2.jpg" alt="" /></a></li>
-							<li><a href="#image-3" data-toggle="tab"><img src="img/pro-details-2/3.jpg" alt="" /></a></li>
-							<li><a href="#image-4" data-toggle="tab"><img src="img/pro-details-2/4.jpg" alt="" /></a></li>-->
+							<li ng-repeat="img in product.images track by $index" ng-class="{active: activeImage== img}" ng-click="setActiveImage(img)">
+								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
+							</li>
 						</ul>
 					</div>
 					<!-- Product Info -->
 					<div class="col-md-6 col-xs-12">
 						<div class="product-info-2 fix">
 							<!-- Product Info Cat -->
-							<div class="pro-info-cat-2"><p>{{product.name}}</p></div>
+							<div class="pro-info-cat-2">
+								<p>{{product.name}}</p>
+							</div>
 							<!-- Product Info Title Ratting -->
 							<div class="pro-info-title-2 fix">
 								<h2>{{product.sizes[0].pk}}</h2>
@@ -63,15 +55,15 @@
 									</div>
 								</div>
 							</div>
-							<div class="pro-info-des-2"  >
-								<p  ng-bind-html="deliberatelyTrustDangerousSnippet(product.description)"></p>
+							<div class="pro-info-des-2">
+								<p ng-bind-html="deliberatelyTrustDangerousSnippet(product.description)"></p>
 							</div>
 							<div class="pro-color-size pro-color-size-2">
 								<div class="pro-color pro-color-2">
 									<h4>Colors:</h4>
 									<ul>
-										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a href="#" >color 1</a></li>
-										
+										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a href="#">color 1</a></li>
+
 									</ul>
 								</div>
 								<div class="pro-size pro-size-2">
@@ -98,5 +90,3 @@
 		</div>
 	</div>
 </div>
-
-
