@@ -12,24 +12,24 @@
 						<div class="pro-image-tab-container tab-content fix">
 							<!-- Product Image Tab -->
 							<div class="pro-image-tab tab-pane active" id="image-1" >
-								<img src="img/pro-details-2/big-1.jpg" alt="" />
+								<img src="{{activeImage}}" alt="" />
 							</div>
-							<div class="pro-image-tab tab-pane" id="image-2">
-								<img src="img/pro-details-2/big-2.jpg" alt="" />
+							<!--<div class="pro-image-tab tab-pane" id="image-2">
+								<img src="{{product.images[1]}}" alt="" />
 							</div>
 							<div class="pro-image-tab tab-pane" id="image-3">
-								<img src="img/pro-details-2/big-1.jpg" alt="" />
+								<img src="{{product.images[2]}}" alt="" />
 							</div>
 							<div class="pro-image-tab tab-pane" id="image-4">
-								<img src="img/pro-details-2/big-2.jpg" alt="" />
-							</div>
+								<img src="{{product.images[3]}}" alt="" />
+							</div>-->
 						</div>
 						<!-- Product Image Tab List -->
 						<ul class="pro-image-tab-list-2">
-							<li class="active"><a href="#image-1" data-toggle="tab"><img src="img/pro-details-2/1.jpg" alt="" /></a></li>
-							<li><a href="#image-2" data-toggle="tab"><img src="img/pro-details-2/2.jpg" alt="" /></a></li>
+							<li  ng-repeat="img in product.images track by $index" ng-class="{active: activeImage== img}" ng-click="setActiveImage(img)"><a  data-toggle="tab"><img src="{{img}}" alt="" /></a></li>
+							<!--<li><a href="#image-2" data-toggle="tab"><img src="img/pro-details-2/2.jpg" alt="" /></a></li>
 							<li><a href="#image-3" data-toggle="tab"><img src="img/pro-details-2/3.jpg" alt="" /></a></li>
-							<li><a href="#image-4" data-toggle="tab"><img src="img/pro-details-2/4.jpg" alt="" /></a></li>
+							<li><a href="#image-4" data-toggle="tab"><img src="img/pro-details-2/4.jpg" alt="" /></a></li>-->
 						</ul>
 					</div>
 					<!-- Product Info -->

@@ -93,7 +93,9 @@ angular.module('app.controller', [])
       url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
     }).then(function mySuccess (response) {
       $scope.product = response.data[0];
-      $scope.currentSize = $scope.product.sizes.S;      
+      $scope.currentSize = $scope.product.sizes.S;  
+     $scope.activeImage = $scope.product.images[0];
+          
     }, function myError (response) {
       $scope.product = response.status + response.statusText;
     })
@@ -113,5 +115,7 @@ angular.module('app.controller', [])
       return $sce.trustAsHtml(htmlString)
     }
 
-    $scope.msg = 'PrintShop View'
+    $scope.setActiveImage = function(img){
+     $scope.activeImage = img;
+    }
   })
