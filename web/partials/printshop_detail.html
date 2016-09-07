@@ -29,31 +29,15 @@
 							<div class="pro-info-cat-2">
 								<p>{{product.name}}</p>
 							</div>
-							<!-- Product Info Title Ratting -->
-							<div class="pro-info-title-2 fix">
-								<h2>{{product.sizes[0].pk}}</h2>
-							</div>
+
 							<div class="fix">
 								<div class="pro-info-price-2 float-left fix">
-									<h1 class="new">RM{{product.minimum_price}}</h1>
-									<h3 class="old">RM{{product.minimum_price}}</h3>
-								</div>
-								<div class="ratting pro-info-ratting pro-info-ratting-2 float-right">
-									<i class="mo-star star active"></i>
-									<i class="mo-star star active"></i>
-									<i class="mo-star star active"></i>
-									<i class="mo-star star active"></i>
-									<i class="mo-star star active"></i>
+									<span style="font-size:14px;position: relative; bottom:-15px">Start From</span>
+									<h1>RM{{product.minimum_price}}</h1>
 								</div>
 							</div>
 							<div class="pro-info-avaibility fix">
 								<p>Available: <span>In Stock</span></p>
-								<div class="pro-info-quantity-2 float-right fix">
-									<h3>Qty</h3>
-									<div class="cart-plus-minus-2 float-right fix">
-										<input type="text" value="0" name="qtybutton" class="cart-plus-minus-box">
-									</div>
-								</div>
 							</div>
 							<div class="pro-info-des-2">
 								<p ng-bind-html="deliberatelyTrustDangerousSnippet(product.description)"></p>
@@ -68,15 +52,16 @@
 								</div>
 								<div class="pro-size pro-size-2">
 									<h4>Sizes: </h4>
-									<ul>
-										<li ng-repeat="(key, data) in product.sizes"><a ng-click="setCurrentSize(product.sizes[key])" >{{key}}</a></li>
-									</ul>
+									
+										<span style="margin:5px" ng-repeat="(key, data) in product.sizes">
+										<a ng-click="setCurrentSize(product.sizes[key])" class='btn btn-primary'>{{key}}</a>
+										</span>
+									
 								</div>
 							</div>
 						</div>
 						<div class="pro-info-actions-2 text-center fix">
-							<button class="pro-info-addcart"><i class="mo-cart"></i>Add to Cart</button>
-							<button class="pro-info-wishlist"><i class="mo-heart"></i>Add to Wishlist</button>
+							<button class="pro-info-addcart"><i class="mo-cart"></i>CUSTOMIZE IT!</button>
 						</div>
 					</div>
 				</div>
