@@ -102,7 +102,6 @@ angular.module('app.controller', [])
     $scope.setCurrentSize = function (item) {
       $scope.currentSize = item;
       $scope.selectedItem = item[0];
-      console.log($scope.selectedItem);
     }
 
     $scope.getColor = function (color) {
