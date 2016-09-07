@@ -12,22 +12,22 @@
 						<div class="pro-image-tab-container tab-content fix">
 							<!-- Product Image Tab -->
 							<div class="pro-image-tab tab-pane active" id="image-1">
-								<img src="{{selectedItem.template_image  || activeImage}}" alt="" />
+								<img src="{{activeImage}}" alt="" />
 							</div>
 						</div>
 						<!-- Product Image Tab List -->
-						<ul class="pro-image-tab-list-2" ng-if="!selectedItem">
-							<li ng-repeat="img in product.images track by $index" ng-class="{active: activeImage== img}"
+						<ul class="pro-image-tab-list-2">
+							<li ng-repeat="img in  selectedItem.images || product.images track by $index" ng-class="{active: activeImage== img}"
 							class=" pointer" ng-click="setActiveImage(img)">
 								<a data-toggle="tab" ><img src="{{img}}" alt="" /></a>
 							</li>
 						</ul>
-						<ul class="pro-image-tab-list-2" ng-if="selectedItem">
+						<!--<ul class="pro-image-tab-list-2" ng-if="selectedItem">
 							<li ng-repeat="img in selectedItem.images track by $index" ng-class="{active: activeImage== img}" 
 							class="pointer" ng-click="setActiveImage(img)">
 								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
 							</li>
-						</ul>
+						</ul>-->
 					</div>
 					<!-- Product Info -->
 					<div class="col-md-6 col-xs-12">
@@ -48,7 +48,7 @@
 							<div class="pro-color-size pro-color-size-2">
 								<div class="pro-color pro-color-2">
 									<h4>Colors:</h4>
-									<span ng-style="{'background-color': item.color}" ng-repeat="item in  currentSize track by $index">{{item.color}}	</span>
+									<!--<span ng-style="{'background-color': item.color}" ng-repeat="item in  currentSize track by $index">{{item.color}}	</span>-->
 									<ul>
 										<li class=" pointer" ng-style="getColor(item.color)" ng-click="setCurrentSize(null, $index)" 
 										ng-repeat="item in  currentSize track by $index"><a>color 1</a></li>

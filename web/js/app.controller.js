@@ -104,6 +104,7 @@ angular.module('app.controller', [])
       $scope.currentSize = item;
       }
       $scope.selectedItem = $scope.currentSize[index];
+      $scope.activeImage = $scope.selectedItem.template_image;
       // console.log($scope.selectedItem);
       
     }
