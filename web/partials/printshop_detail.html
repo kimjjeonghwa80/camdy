@@ -43,17 +43,7 @@
 							<div class="pro-info-avaibility fix">
 								<p>Available: <span>In Stock</span></p>
 							</div>
-							<div class="pro-info-des-2">
-								<p ng-bind-html="deliberatelyTrustDangerousSnippet(product.description)"></p>
-							</div>
 							<div class="pro-color-size pro-color-size-2">
-								<div class="pro-color pro-color-2">
-									<h4>Colors:</h4>
-									<ul>
-										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a>color 1</a></li>
-
-									</ul>
-								</div>
 								<div class="pro-size pro-size-2">
 									<h4>Sizes: </h4>
 
@@ -62,7 +52,21 @@
 										</span>
 
 								</div>
+								<div class="pro-color pro-color-2">
+									<h4>Colors:</h4>
+									<ul>
+										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a>color 1</a></li>
+
+									</ul>
+								</div>
+
 							</div>
+							<div style="clear:both"></div>
+							<div class="pro-info-des-2">
+								<h2>DESCRIPTION</h2>
+								<p ng-bind-html="deliberatelyTrustDangerousSnippet(product.description)"></p>
+							</div>
+
 						</div>
 						<div class="pro-info-actions-2 text-center fix">
 							<button class="pro-info-addcart"><i class="mo-cart"></i>CUSTOMIZE IT!</button>
