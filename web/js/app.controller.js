@@ -91,22 +91,23 @@ angular.module('app.controller', [])
       method: 'GET',
       url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
     }).then(function mySuccess (response) {
-      $scope.product = response.data[0];
-      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]];  
-     $scope.activeImage = $scope.product.images[0];
-          
+      $scope.product = response.data[0]
+      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]]
+      $scope.activeImage = $scope.product.images[0]
     }, function myError (response) {
-      $scope.product = response.status + response.statusText;
+      $scope.product = response.status + response.statusText
     })
 
     $scope.setCurrentSize = function (item, index) {
-      if(item){
-      $scope.currentSize = item;
+      if (item) {
+        $scope.activeImage = $scope.product.images[0]
+        $scope.currentSize = item
+      } else {
+        $scope.selectedItem = $scope.currentSize[index]
+        $scope.activeImage = $scope.selectedItem.template_image
       }
-      $scope.selectedItem = $scope.currentSize[index];
-      $scope.activeImage = $scope.selectedItem.template_image;
-      // console.log($scope.selectedItem);
-      
+      // console.log($scope.selectedItem)
+
     }
 
     $scope.getColor = function (color) {
@@ -119,7 +120,7 @@ angular.module('app.controller', [])
       return $sce.trustAsHtml(htmlString)
     }
 
-    $scope.setActiveImage = function(img){
-     $scope.activeImage = img;
+    $scope.setActiveImage = function (img) {
+      $scope.activeImage = img
     }
   })
