@@ -1,5 +1,5 @@
 // var API_URL = "http://localhost:8000/"
-var API_URL = 'https://api.dropp.photo/'
+var API_URL = 'https://api.dropp.photo/';
 
 angular.module('app.controller', [])
 
@@ -83,7 +83,8 @@ angular.module('app.controller', [])
     }, function myError (response) {
       $scope.products = response.status + response.statusText
     })
-    $scope.category = $stateParams.category
+    $scope.category = $stateParams.category;
+    $scope.categoryName = $stateParams.categoryName;
     $scope.msg = 'PrintShop Detail'
   })
 
@@ -93,7 +94,8 @@ angular.module('app.controller', [])
       url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
     }).then(function mySuccess (response) {
       $scope.product = response.data[0];
-      $scope.currentSize = $scope.product.sizes.S;      
+      $scope.currentSize = $scope.product.sizes[0];   
+      $scope.sizes=$scope.product.sizes;   
     }, function myError (response) {
       $scope.product = response.status + response.statusText;
     })
