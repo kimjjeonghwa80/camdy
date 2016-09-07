@@ -99,9 +99,13 @@ angular.module('app.controller', [])
       $scope.product = response.status + response.statusText;
     })
 
-    $scope.setCurrentSize = function (item) {
+    $scope.setCurrentSize = function (item, index) {
+      if(item){
       $scope.currentSize = item;
-      $scope.selectedItem = item[0];
+      }
+      $scope.selectedItem = $scope.currentSize[index];
+      // console.log($scope.selectedItem);
+      
     }
 
     $scope.getColor = function (color) {

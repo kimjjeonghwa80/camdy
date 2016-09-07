@@ -17,12 +17,14 @@
 						</div>
 						<!-- Product Image Tab List -->
 						<ul class="pro-image-tab-list-2" ng-if="!selectedItem">
-							<li ng-repeat="img in product.images track by $index" ng-class="{active: activeImage== img}" ng-click="setActiveImage(img)">
-								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
+							<li ng-repeat="img in product.images track by $index" ng-class="{active: activeImage== img}"
+							class=" pointer" ng-click="setActiveImage(img)">
+								<a data-toggle="tab" ><img src="{{img}}" alt="" /></a>
 							</li>
 						</ul>
 						<ul class="pro-image-tab-list-2" ng-if="selectedItem">
-							<li ng-repeat="img in selectedItem.images track by $index" ng-class="{active: activeImage== img}" ng-click="setActiveImage(img)">
+							<li ng-repeat="img in selectedItem.images track by $index" ng-class="{active: activeImage== img}" 
+							class="pointer" ng-click="setActiveImage(img)">
 								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
 							</li>
 						</ul>
@@ -49,18 +51,17 @@
 							<div class="pro-color-size pro-color-size-2">
 								<div class="pro-color pro-color-2">
 									<h4>Colors:</h4>
+									<span ng-style="{'background-color': item.color}" ng-repeat="item in  currentSize track by $index">{{item.color}}	</span>
 									<ul>
-										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a>color 1</a></li>
-
+										<li class=" pointer" ng-style="getColor(item.color)" ng-click="setCurrentSize(null, $index)" 
+										ng-repeat="item in  currentSize track by $index"><a>color 1</a></li>
 									</ul>
 								</div>
 								<div class="pro-size pro-size-2">
 									<h4>Sizes: </h4>
-
 									<span style="margin:5px" ng-repeat="(key, data) in product.sizes">
-										<a ng-click="setCurrentSize(product.sizes[key])" class='btn btn-primary'>{{key}}</a>
+										<a ng-click="setCurrentSize(product.sizes[key],0)" class='btn btn-primary'>{{key}}</a>
 										</span>
-
 								</div>
 							</div>
 						</div>
