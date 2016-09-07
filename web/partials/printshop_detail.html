@@ -12,12 +12,17 @@
 						<div class="pro-image-tab-container tab-content fix">
 							<!-- Product Image Tab -->
 							<div class="pro-image-tab tab-pane active" id="image-1">
-								<img src="{{activeImage}}" alt="" />
+								<img src="{{selectedItem.template_image  || activeImage}}" alt="" />
 							</div>
 						</div>
 						<!-- Product Image Tab List -->
-						<ul class="pro-image-tab-list-2">
+						<ul class="pro-image-tab-list-2" ng-if="!selectedItem">
 							<li ng-repeat="img in product.images track by $index" ng-class="{active: activeImage== img}" ng-click="setActiveImage(img)">
+								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
+							</li>
+						</ul>
+						<ul class="pro-image-tab-list-2" ng-if="selectedItem">
+							<li ng-repeat="img in selectedItem.images track by $index" ng-class="{active: activeImage== img}" ng-click="setActiveImage(img)">
 								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
 							</li>
 						</ul>
@@ -35,8 +40,8 @@
 							</div>
 							<div class="fix">
 								<div class="pro-info-price-2 float-left fix">
-									<h1 class="new">RM{{product.minimum_price}}</h1>
-									<h3 class="old">RM{{product.minimum_price}}</h3>
+									<h1 class="new">RM{{selectedItem.price || product.minimum_price}}</h1>
+									<h3 class="old">RM{{selectedItem.price || product.minimum_price}}</h3>
 								</div>
 								<div class="ratting pro-info-ratting pro-info-ratting-2 float-right">
 									<i class="mo-star star active"></i>
@@ -62,7 +67,7 @@
 								<div class="pro-color pro-color-2">
 									<h4>Colors:</h4>
 									<ul>
-										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a href="#">color 1</a></li>
+										<li ng-style="getColor(item.color)" ng-repeat="item in  currentSize track by $index"><a>color 1</a></li>
 
 									</ul>
 								</div>
