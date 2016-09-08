@@ -2,11 +2,7 @@ angular.module('app').factory('ApiService', function( ) {
 
   return {
     baseUrl: function(url) {
-      if(window.location.host.indexOf("localhost:") > -1) {
-        return "http://localhost/apps/tshirt_test/"; //only used for development
-      } else {
-        return "../";
-      }
+      return "../";
     },    
     Url: function(url) {
       return this.baseUrl() + "api/" + url;
