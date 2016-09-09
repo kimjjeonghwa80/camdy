@@ -7,3 +7,7 @@ dump.zip
 supersamples.opts
 dump/
 *~
+/laravel
+/phpmailer
+/revslider
+/web_admin
