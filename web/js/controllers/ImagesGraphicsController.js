@@ -8,6 +8,10 @@ angular.module('myApp').controller('ImagesGraphicsController', function( $scope,
     
     this.name = "ImagesGraphicsController";
     this.params = $stateParams;
+$scope.canvas = {};
+window.onload = function() {
+	$scope.canvas = new fabric.Canvas('canvas');
+}
 
     $scope._ = _;
     $scope.clipArt = null;
@@ -17,9 +21,9 @@ angular.module('myApp').controller('ImagesGraphicsController', function( $scope,
   //  $scope.setActiveTab('images');
 
     $scope.addClipart = function(img) {
-        console.log('img', img);
+        console.log('img', img, $scope.canvas);
         fabric.loadSVGFromURL(img.svg.url, function(ob,op){
-            			console.log($scope.canvas);
+            			
             $scope.canvas.add(new fabric.PathGroup(ob, op).set({ left: 100, top: 100 }));
             $scope.canvas.setActiveObject($scope.canvas.item($scope.canvas.getObjects().length - 1));
             
