@@ -16,7 +16,7 @@
                       <div id="designer-product" ng-style="{ 'width' : designerWidth, 'height' : designerHeight, 'left' :designerLeft }">
 
                         <div id="designer-holder" ng-style="{ 'top' : calcLeft(designerHeight * zoom, designerHeight), 'left' : calcLeft(designerWidth * zoom, designerWidth), 'width' : designerWidth * zoom, 'height' : designerHeight * zoom }">
-                            <img ng-src="{{desiredItem}}"/>
+                            <img ng-src="{{selectedItem}}"/>
                         </div>
 
                             <div id="designer-container" ng-style="{'width':selectedOrientationDimensions.printableWidth * zoom, 'height':selectedOrientationDimensions.printableHeight * zoom,'top':(selectedOrientationDimensions.printableOffsetY*zoom) + calcLeft(designerHeight * zoom, designerHeight), 'left':(selectedOrientationDimensions.printableOffsetX * zoom) + calcLeft(designerWidth * zoom, designerWidth)}">

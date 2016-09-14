@@ -105,7 +105,8 @@ angular.module('app.controller', [])
     }).then(function mySuccess (response) {
       $scope.product = response.data[0]
       $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]]
-      $scope.activeImage = $scope.product.images[0]
+      $scope.activeImage = $scope.product.images[0];
+      window.localStorage.setItem("selectedItem",$scope.product.images[0]);
     }, function myError (response) {
       $scope.product = response.status + response.statusText
     })
@@ -115,10 +116,12 @@ angular.module('app.controller', [])
         $scope.activeImage = $scope.product.images[0]
         $scope.currentSize = item;
         $scope.selectedItem = null;
+      window.localStorage.setItem("selectedItem",$scope.product.images[0]);                
       } else {
         $scope.selectedItem = $scope.currentSize[index]
         $scope.activeImage = $scope.selectedItem.template_image;
-        $rootScope.desiredItem = $scope.activeImage;
+       // $rootScope.desiredItem = $scope.activeImage;
+      window.localStorage.setItem("selectedItem",$scope.activeImage);        
       }
       // console.log($scope.selectedItem)
 
@@ -139,7 +142,9 @@ angular.module('app.controller', [])
     }
   })
  .controller('customizeCtrl', function ($scope, $http) {
-    $scope.msg = 'Customize the product'
+    $scope.msg = 'Customize the product';
+       $scope.selectedItem =  window.localStorage.getItem('selectedItem');
+
   })
 
   .controller('ExampleCtrl', ['$scope', 'Fabric', 'FabricConstants', 'Keypress',

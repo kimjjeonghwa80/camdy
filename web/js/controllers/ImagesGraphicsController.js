@@ -8,9 +8,10 @@ angular.module('myApp').controller('ImagesGraphicsController', function( $scope,
     
     this.name = "ImagesGraphicsController";
     this.params = $stateParams;
-$scope.canvas = {};
-window.onload = function() {
 	$scope.canvas = new fabric.Canvas('canvas');
+    
+//$scope.canvas = {};
+window.onload = function() {
 }
 
     $scope._ = _;
