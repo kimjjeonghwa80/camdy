@@ -190,6 +190,11 @@ span {
   text-align: center;
   padding: 10px;
 }
+.faq {
+  min-height: 300px;
+  padding: 30px;
+  float: left;
+}
 .fix {
   overflow: hidden;
 }

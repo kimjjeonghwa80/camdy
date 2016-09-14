@@ -69,7 +69,11 @@ angular.module('myApp', [
       .state('faq', {
         url: '/faq',
         templateUrl: 'partials/faq.html',
-        controller: 'AccordionDemoCtrl'
+        controller: 'faqCtrl',
+        metaTags: {
+          title: 'FAQ',
+          keywords: keywords
+        }
       })
       .state('blog', {
         url: '/blog',
