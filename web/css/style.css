@@ -19,9 +19,13 @@
   transition: all 0.3s ease 0s;
 }
 html {
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
 body {
+  margin: 0;
+  padding: 0;
   height: 100%;
   background: white;
   color: #757575;
@@ -30,6 +34,21 @@ body {
   font-weight: normal;
   position: relative;
   -webkit-font-smoothing: antialiased;
+}
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+#content {
+  padding-bottom: 200px;
+  /* Height of the footer element */
+}
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
 }
 h1 {
   font-weight: lighter;
@@ -145,14 +164,6 @@ img {
   transition: all 0.3s ease 0s;
   max-width: 100%;
 }
-ul {
-  list-style: none;
-  margin: 0;
-}
-ol {
-  list-style: none;
-  margin: 0;
-}
 textarea:-moz-placeholder {
   color: #9b9b9c;
   opacity: 1;
@@ -189,6 +200,26 @@ span {
 .pages h2 {
   text-align: center;
   padding: 10px;
+}
+.pages ul {
+  padding-left: 40px;
+  padding-right: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0;
+}
+.pages ul li {
+  padding-left: 5px;
+}
+.pages ol {
+  padding-left: 40px;
+  padding-right: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0;
+}
+.pages ol li {
+  padding-left: 5px;
 }
 .faq {
   min-height: 300px;
@@ -2185,18 +2216,13 @@ span {
   color: #9b9b9c;
 }
 .footer-bottom {
-  background: #333333 none repeat scroll 0 0;
+  background: #333333;
   padding: 24px 0;
 }
-.footer-bottom .copyright p {
+.footer-bottom a {
   color: #9b9b9c;
-  font-size: 12px;
 }
-.footer-bottom .copyright p a {
-  color: #9b9b9c;
-  font-weight: bold;
-}
-.footer-bottom .copyright p a:hover {
+.footer-bottom a:hover {
   color: #0d7cc1;
 }
 .contact-form h2 {

@@ -75,6 +75,23 @@ angular.module('myApp', [
           keywords: keywords
         }
       })
+      .state('terms_condition', {
+        url: '/terms_condition',
+        templateUrl: 'partials/terms_condition.html',
+        metaTags: {
+          title: 'TERMS & CONDITION',
+          keywords: keywords
+        }
+      })
+
+      .state('privacy', {
+        url: '/privacy',
+        templateUrl: 'partials/privacy.html',
+        metaTags: {
+          title: 'PRIVACY & POLICY',
+          keywords: keywords
+        }
+      })      
       .state('blog', {
         url: '/blog',
         templateUrl: 'partials/blog.html',
