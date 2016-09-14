@@ -3,6 +3,18 @@ var API_URL = 'https://api.dropp.photo/'
 
 angular.module('app.controller', [])
 
+  .controller('faqCtrl', function ($scope, $http) {
+    $http({
+      method: 'GET',
+      url: '../laravel/public/api/v1/faqs'
+    }).then(function mySuccess (response) {
+      $scope.faqs = response.data.data
+    }, function myError (response) {
+      $scope.faqs = response.status + response.statusText
+    })
+    $scope.msg = 'FAQ'
+  })
+
   .controller('blogCtrl', function ($scope, $http) {
     $http({
       method: 'GET',

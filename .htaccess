@@ -15,7 +15,7 @@ ExpiresDefault "access 1 month"
 </IfModule>
 ## EXPIRES CACHING ##
 
-<filesMatch "\.(yml|sqlite|txt|log)$">
+<filesMatch "\.(yml|sqlite|log)$">
 	Order Allow,Deny
 	Deny from all
 </filesMatch>

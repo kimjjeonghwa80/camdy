@@ -32,13 +32,18 @@
     </head>
 </html>
 <body>
+<div id="wrapper">
     <div ng-include="'partials/inc_header_nav.html'">
     </div>
     <!--<div ng-include="'inc_nav_mobile.html'"></div> -->
-    <div ui-view="">
+    <div id="content">
+        <div ui-view="">
+        </div>
     </div>
     <div ng-include="'partials/inc_footer.html'">
     </div>
+</div>
+
     <!-- angular JS app -->
     <!-- Output the html-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular-sanitize.min.js" type="text/javascript">
