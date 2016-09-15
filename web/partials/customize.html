@@ -10,26 +10,31 @@
 					<div class="product-image-2 col-md-6 col-xs-12">
 
 
-                   <div class="outer-holder">
+						<div class="outer-holder">
 
-                       
-                      <div id="designer-product" ng-style="{ 'width' : designerWidth, 'height' : designerHeight, 'left' :designerLeft }">
 
-                        <div id="designer-holder" ng-style="{ 'top' : calcLeft(designerHeight * zoom, designerHeight), 'left' : calcLeft(designerWidth * zoom, designerWidth), 'width' : designerWidth * zoom, 'height' : designerHeight * zoom }">
+							<div id="designer-product" ng-style="{ 'width' : designerWidth, 'height' : designerHeight, 'left' :designerLeft }">
+
+								<!--<div id="designer-holder" ng-style="{ 'top' : calcLeft(designerHeight * zoom, designerHeight), 'left' : calcLeft(designerWidth * zoom, designerWidth), 'width' : designerWidth * zoom, 'height' : designerHeight * zoom }">
                             <img ng-src="{{selectedItem}}"/>
-                        </div>
+                        </div>-->
 
-                            <div id="designer-container" ng-style="{'width':selectedOrientationDimensions.printableWidth * zoom, 'height':selectedOrientationDimensions.printableHeight * zoom,'top':(selectedOrientationDimensions.printableOffsetY*zoom) + calcLeft(designerHeight * zoom, designerHeight), 'left':(selectedOrientationDimensions.printableOffsetX * zoom) + calcLeft(designerWidth * zoom, designerWidth)}">
+								<div id="designer-holder">
+									<canvas id="designer-canvas" width="500" height="500"></canvas>
+
+								</div>
+
+								<!--<div id="designer-container" ng-style="{'width':selectedOrientationDimensions.printableWidth * zoom, 'height':selectedOrientationDimensions.printableHeight * zoom,'top':(selectedOrientationDimensions.printableOffsetY*zoom) + calcLeft(designerHeight * zoom, designerHeight), 'left':(selectedOrientationDimensions.printableOffsetX * zoom) + calcLeft(designerWidth * zoom, designerWidth)}">
                             <canvas id="designer-canvas" width="{{selectedOrientationDimensions.printableWidth}}" height="{{selectedOrientationDimensions.printableHeight}}" ></canvas>
-                        </div>
+                        </div>-->
 
 
 
-                </div>
-            </div>
+							</div>
+						</div>
 
 
-						
+
 						<!-- Product Image Tab container -->
 						<!--<div class="pro-image-tab-container tab-content fix">
 							<!-- Product Image Tab 
@@ -42,33 +47,37 @@
 					<!-- Product Info -->
 					<div class="col-md-6 col-xs-12">
 						<h1>Tabs here</h1>
-            
 
-            <div class="btn-group btn-group-justified btn-menu hidden-xs" ng-click="editMode = 'none'">
-        
-                <a ui-sref="custom.images.home" ng-click="editMode = 'none'" class="btn btn-default" ng-class="{active: (activeTab == 'images' && editMode == 'none') || editMode == 'image'}"><i class="fa fa-camera"></i><br /><translate>Add image</translate></a>
-                <a ui-sref="text.add" ng-click="editMode = 'none'" class="btn btn-default" ng-class="{active: (activeTab == 'text' && editMode == 'none') || editMode == 'text'}"><i class="fa fa-font"></i><br /><translate>Add text</translate></a>
-                <a ui-sref="buy.home" class="btn btn-default" ng-class="{active: activeTab == 'buy' && editMode == 'none'}"><i class="fa fa-shopping-cart"></i><br /><translate>Buy now</translate></a>
-            </div>
 
-           <div class="view-animate-container">
-                <div ui-view="edit_text"></div>
-                <div  ui-view="edit_image"></div>
-            </div>
+						<div class="btn-group btn-group-justified btn-menu hidden-xs" ng-click="editMode = 'none'">
 
-            <div class="view-animate-container" ng-show="editMode == 'none'">
-                <div ui-view></div>
-            </div>
+							<a ui-sref="custom.images.home" ng-click="editMode = 'none'" class="btn btn-default" ng-class="{active: (activeTab == 'images' && editMode == 'none') || editMode == 'image'}"><i class="fa fa-camera"></i><br />
+								<translate>Add image</translate>
+							</a>
+							<a ui-sref="text.add" ng-click="editMode = 'none'" class="btn btn-default" ng-class="{active: (activeTab == 'text' && editMode == 'none') || editMode == 'text'}"><i class="fa fa-font"></i><br />
+								<translate>Add text</translate>
+							</a>
+							<a ui-sref="buy.home" class="btn btn-default" ng-class="{active: activeTab == 'buy' && editMode == 'none'}"><i class="fa fa-shopping-cart"></i><br /><translate>Buy now</translate></a>
+						</div>
 
-          
-        
-    </div>
-						
+						<div class="view-animate-container">
+							<div ui-view="edit_text"></div>
+							<div ui-view="edit_image"></div>
+						</div>
+
+						<div class="view-animate-container" ng-show="editMode == 'none'">
+							<div ui-view></div>
+						</div>
+
+
+
 					</div>
-				</div>
 
+				</div>
 			</div>
 
 		</div>
+
 	</div>
+</div>
 </div>

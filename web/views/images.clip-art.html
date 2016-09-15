@@ -37,7 +37,7 @@
                 <div class="row clipArt-selector">
                     <div class="col-xs-3 clipArt-thumbnail" ng-repeat="img in clipArt">
                         <a href="">
-                             <img ng-click="addClipart(img)" ng-src="{{(img.svg.url)}}" />
+                             <img ng-click="addClipart('http://fabricjs.com/assets/'+img+'.svg')" ng-src="http://fabricjs.com/assets/{{img}}.svg" />
                             
                         </a>
                     </div>
