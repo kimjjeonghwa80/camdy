@@ -132,7 +132,7 @@ angular.module('myApp', [
       */
 
       .state('custom', {
-        url: '',
+        url: '/custom',
         views: {
           '': {
             templateUrl: 'partials/customize.html',
