@@ -1,0 +1,19 @@
+
+<div class='pages'>
+    <div class="container">
+        <div class='row'>
+
+             <h1>Frequently Asked Question</h1>
+
+            <br/><br/>
+
+             <div ng-repeat="faq in faqs ">
+                    <div class="col-xs-12 col-md-6 faq">
+                    <h2>{{faq.question}}</h2>
+                    <p ng-bind-html="faq.answer"></p>
+                    </div>
+             </div>
+
+         </div>
+    </div>
+</div>

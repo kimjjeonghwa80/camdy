@@ -1,0 +1,47 @@
+@import "variable.less";
+.mobile-menu {
+	
+
+	.mean-bar {
+
+		&::after {
+			content: url(../img/logo_mobile.png);
+			
+			font-family: @font-family_1;
+
+			
+		}
+	}
+	ul {
+		padding: 0 25px !important;
+		li {
+			padding: 0 !important;
+			a {
+				text-transform: uppercase !important;
+				&:hover {
+					color: @color_white;
+					background-color: @color_secondary;
+					padding-left:20px;
+				}
+			}
+			ul {
+				padding: 0 !important;
+			}
+		}
+	}
+}
+.meanmenu-reveal {
+	width: 24px !important;
+	span {
+		margin-top: 4px !important;
+	}
+}
+.meanclose {
+	width: 24px !important;
+	text-align: right !important;
+}
+.mean-expand {
+	right: 0 !important;
+	text-align: center;
+	width: 30px !important;
+}

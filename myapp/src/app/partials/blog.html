@@ -1,0 +1,49 @@
+<div class="pages">
+    <div class="container">
+        <h1>
+            NEWS
+        </h1>
+        <div class="row">
+            <div ng-repeat="blog in blogs | orderBy : '-id'">
+                <div class="col-sm-6">
+                    <div ng-class="{'sin-blog-others' : !$first, 'sin-blog' : $first }">
+                        <div class="blog-image" ng-show="$first">
+                            <img ng-src="../laravel/public/uploads/{{blog.photo_main}}"/>
+                            <a ng-href="#/blog/{{blog.id}}">
+                                Continue Reading
+                            </a>
+                        </div>
+                        <div class="blog-details">
+                            <div class="top fix">
+                                <a class="blog-cat float-left" href="#">
+                                    {{blog.blogcategories.name}}
+                                </a>
+                            </div>
+                            <div class="title">
+                                <a ui-sref="blogDetail({id:blog.id})">
+                                    {{blog.title}}
+                                </a>
+                            </div>
+                            <div class="blog-meta">
+                                {{blog.date_posted}}
+                            </div>
+                            <p>
+                                <div ng-bind-html="blog.description | words: 34">
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- col md-6 -->
+            </div>
+            <div class="col-sm-12 text-center">
+                <div class="more-product">
+                    <a class="shop-link" href="#">
+                        <i class="mo-more">
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

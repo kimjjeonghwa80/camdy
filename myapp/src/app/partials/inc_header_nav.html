@@ -1,0 +1,173 @@
+<div class="container visible-xs">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button class="navbar-toggle" ng-click="navCollapsed = !navCollapsed" ng-init="navCollapsed = true" type="button">
+                <span class="sr-only">
+                    Toggle navigation
+                </span>
+                <span class="icon-bar">
+                </span>
+                <span class="icon-bar">
+                </span>
+                <span class="icon-bar">
+                </span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img alt="logo" src="app/img/logo_inverse.png" style="height:50px"/>
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/">
+                        HOME
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="blog">
+                        NEWS
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="printshop">
+                        PRINTSHOP
+                    </a>
+                </li>
+                <!-- <li dropdown>
+            <a href="#" dropdown-toggle>PRINTSHOP <b class="caret"></b></a>
+            
+            <ul class="dropdown-menu">
+                                        <li><a href="printshop.tshirt.php">T-Shirt</a></li>
+                                        <li><a href="printshop.mug.php" >Mug</a></li>
+                                        <li><a href="printshop.cushion.php">Cushion</a></li>
+                                        <li><a href="printshop.ceramic.php">Ceramic</a></li>
+                                        <li><a href="<?php echo BASE_ECOM ?>mousepad/white" >Mousepad</a></li>
+                                        <li><a href="printshop.phonecase.php" >Phone Case</a></li>
+                                        <li><a href="printshop.puzzle.php" >Puzzle</a></li>
+            </ul>
+          </li>-->
+                <li>
+                    <a ui-sref="contactus">
+                        CONTACT US
+                    </a>
+                </li>
+            </ul>
+            <!--
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                        My Cart
+                    </a>
+                </li>
+                <li dropdown="">
+                    <a dropdown-toggle="" href="#">
+                        Login/Register
+                        <b class="caret">
+                        </b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">
+                                User Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>-->
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
+<!-- Header Bottom -nav
+============================================ -->
+<div class="header-bottom visible-lg visible-md visible-sm">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-md-2">
+                <a href="/">
+                    <img alt="logo" src="app/img/logo_inverse.png"/>
+                </a>
+            </div>
+            <div class="main-menu col-md-10">
+                <nav>
+                    <ul>
+                        <!--<li class="active"><a href="/">Home</a></li>
+                        
+                        <li><a href="#printshop">Print Shop</a>
+                              
+                            <div class="mega-menu mega-menu1">
+                                <div class="megamenu-column megamenu-column1">
+                                    <ul>
+                                      <li><a href="#">AVAILABLE NOW!</a></li>
+                                        <li><a href="printshop.tshirt.php">T-Shirt</a></li>
+                                        <li><a href="printshop.mug.php" >Mug</a></li>
+                                        <li><a href="printshop.cushion.php">Cushion</a></li>
+                                        <li><a href="printshop.ceramic.php">Ceramic</a></li>
+                                        <li><a href="<?php echo BASE_ECOM ?>mousepad/white" >Mousepad</a></li>
+                                        <li><a href="printshop.phonecase.php" >Phone Case</a></li>
+                                        <li><a href="printshop.puzzle.php" >Puzzle</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="megamenu-column megamenu-column1">
+                                    <ul>
+                                        <li><a href="shop.html">COMING SOON....</a></li>
+                                        <li><a href="shop.html">Badges</a></li>
+                                        <li><a href="shop.html">4R & 5R Photos</a></li>
+                                        <li><a href="shop.html">Calendar</a></li>
+                                        <li><a href="shop.html">PhotoBook</a></li>
+                                        <li><a href="shop.html">Magnet</a></li>
+                                        <li><a href="shop.html">Key-Chain</a></li>
+                                    </ul>
+                                </div>
+                                <div class="megamenu-column megamenu-column1">
+                                    <ul>
+                                        <li><a href="#">.....</a></li>
+                                        <li><a href="#">Baby Napkin</a></li>
+                                        <li><a href="#">Flower</a></li>
+                                        <li><a href="#">Box Printing</a></li>
+                                        <li><a href="#">Umbrella</a></li>
+                                        <li><a href="#">Chocolate</a></li>
+                                        <li><a href="#">Coaster</a></li>
+                                        <li><a href="#">..MANY MORE</a></li>
+                                    </ul>
+                                </div>
+                            
+
+                            </div>
+                        </li>-->
+                        <li>
+                            <a ui-sref="blog">
+                                NEWS
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="printshop">
+                                PRINTSHOP
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="contactus">
+                                CONTACT
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
