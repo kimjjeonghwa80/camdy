@@ -6,7 +6,8 @@ angular.module('myApp', [
   'app.controller',
   'app.directive',
   'ui.router.metatags',
-  'ngFileUpload'
+  'ngFileUpload',
+  'LocalStorageModule'
   //'ngResource'
 ])
   .config(['$stateProvider', '$urlRouterProvider', 'UIRouterMetatagsProvider', function ($stateProvider, $urlRouterProvider, UIRouterMetatagsProvider) {

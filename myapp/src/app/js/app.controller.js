@@ -7,9 +7,9 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: '../laravel/public/api/v1/faqs'
-    }).then(function mySuccess (response) {
+    }).then(function mySuccess(response) {
       $scope.faqs = response.data.data
-    }, function myError (response) {
+    }, function myError(response) {
       $scope.faqs = response.status + response.statusText
     })
     $scope.msg = 'FAQ'
@@ -19,9 +19,9 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: '../laravel/public/api/v1/blogs'
-    }).then(function mySuccess (response) {
+    }).then(function mySuccess(response) {
       $scope.blogs = response.data
-    }, function myError (response) {
+    }, function myError(response) {
       $scope.blogs = response.status + response.statusText
     })
     $scope.msg = 'blog'
@@ -32,10 +32,10 @@ angular.module('app.controller', [])
       method: 'GET',
       // url: "http://camdy.app/laravel/public/api/v1/blogs/" + $stateParams.id
       url: '../laravel/public/api/v1/blogs/' + $stateParams.id
-    }).then(function mySuccess (response) {
+    }).then(function mySuccess(response) {
       $scope.blogs = response.data.data
       $scope.titles = response.data.data.title
-    }, function myError (response) {
+    }, function myError(response) {
       $scope.blogs = response.status + response.statusText
     })
     $scope.msg = 'blog Detail'
@@ -77,9 +77,9 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: API_URL + 'merchandise/?order=sort'
-    }).then(function mySuccess (response) {
+    }).then(function mySuccess(response) {
       $scope.products = response.data
-    }, function myError (response) {
+    }, function myError(response) {
       $scope.products = response.status + response.statusText
     })
     $scope.msg = 'PrintShop'
@@ -89,43 +89,47 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: API_URL + 'merchandise/' + $stateParams.category
-    }).then(function mySuccess (response) {
+    }).then(function mySuccess(response) {
       $scope.products = response.data
-    }, function myError (response) {
+    }, function myError(response) {
       $scope.products = response.status + response.statusText
     })
     $scope.category = $stateParams.category
     $scope.msg = 'PrintShop Detail'
   })
 
-  .controller('printshopDetailCtrl', function ($scope, $sce, $stateParams, $http, $state, $rootScope) {
+  .controller('printshopDetailCtrl', function ($scope, $sce, $stateParams, $http, $state, $rootScope, localStorageService) {
     $http({
       method: 'GET',
       url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
-    }).then(function mySuccess (response) {
+    }).then(function mySuccess(response) {
       $scope.product = response.data[0]
-      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]]
+      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]];
       $scope.activeImage = $scope.product.images[0];
-      window.localStorage.setItem("selectedItem",$scope.product.images[0]);
-    }, function myError (response) {
-      $scope.product = response.status + response.statusText
-    })
+      window.localStorage.setItem("selectedItem", $scope.product.images[0]);
+      localStorageService.set("selectedItemDimensions", $scope.currentSize[0].dimensions);
+      $scope.product = response.status + response.statusText;
+    });
 
     $scope.setCurrentSize = function (item, index) {
+
       if (item) {
-        $scope.activeImage = $scope.product.images[0]
+        $scope.activeImage = $scope.product.images[0];
         $scope.currentSize = item;
         $scope.selectedItem = null;
-      window.localStorage.setItem("selectedItem",$scope.product.images[0]);                
+        localStorageService.set("selectedItemDimensions", item[0].dimensions);
+        window.localStorage.setItem("selectedItem", $scope.product.images[0]);
+
       } else {
-        $scope.selectedItem = $scope.currentSize[index]
+        localStorageService.set("selectedItemDimensions", $scope.currentSize[index].dimensions);
+        $scope.selectedItem = $scope.currentSize[index];
         $scope.activeImage = $scope.selectedItem.template_image;
-       // $rootScope.desiredItem = $scope.activeImage;
-      window.localStorage.setItem("selectedItem",$scope.activeImage);        
+        // $rootScope.desiredItem = $scope.activeImage;
+        window.localStorage.setItem("selectedItem", $scope.activeImage);
       }
       // console.log($scope.selectedItem)
 
-    }
+    };
 
     $scope.getColor = function (color) {
       return {
@@ -141,10 +145,12 @@ angular.module('app.controller', [])
       $scope.activeImage = img
     }
   })
- .controller('customizeCtrl', function ($scope, $http) {
+  .controller('customizeCtrl', function ($scope, $http,localStorageService) {
     $scope.msg = 'Customize the product';
-       $scope.selectedItem =  window.localStorage.getItem('selectedItem');
+    $scope.selectedItem = window.localStorage.getItem('selectedItem');
+     $scope.selectedItemDimensions = localStorageService.get('selectedItemDimensions');
+     console.log( $scope.selectedItemDimensions);
 
-  })
 
-  
+  });
+
