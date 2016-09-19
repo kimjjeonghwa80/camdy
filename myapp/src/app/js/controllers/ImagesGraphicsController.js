@@ -13,20 +13,19 @@ angular.module('myApp').controller('ImagesGraphicsController', function ($scope,
   $scope.selectedItem = window.localStorage.getItem('selectedItem');
 
   $rootScope.canvas.on('after:render', function () {
-    console.log('after')
-    $rootScope.canvas.contextContainer.strokeStyle = '#555'
+    $rootScope.canvas.contextContainer.strokeStyle = '#555';
 
     $rootScope.canvas.forEachObject(function (obj) {
-      var bound = obj.getBoundingRect()
+      var bound = obj.getBoundingRect();
 
       $rootScope.canvas.contextContainer.strokeRect(
         bound.left + 0.5,
         bound.top + 0.5,
         bound.width,
         bound.height
-      )
-    })
-  })
+      );
+    });
+  });
 
   // $rootScope.canvas.on({
   // 		 'object:moving': function(e) {		  	
