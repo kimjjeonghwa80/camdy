@@ -9,17 +9,24 @@
 					<!-- Product Image -->
 					<div class="product-image-2 col-md-6 col-xs-12">
 
+<!--	EDITOR      -->					
+					<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
+						<img id="tshirtFacing" src="{{selectedItem}}"></img>
+						<div id="drawingArea" style="position: absolute;top: 51px;left: 148px;z-index: 10;width: 200px;height: 400px;">					
+							<canvas id="designer-canvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
+						</div>
+					</div>
 
 
 
 
 		<!--	EDITOR      -->					
-					<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
+					<!--<div id="shirtDiv"  style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
 						<img id="tshirtFacing" src="{{selectedItem}}"></img>
-						<div id="drawingArea" style="position: absolute;top: 51px;left: 111px;z-index: 10;width: 200px;height: 400px;">					
-							<canvas id="designer-canvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
+						<div id="drawingArea" style="position: absolute;top: 51px;left: 148px;z-index: 10;width: {{canvasWidth}}px;height: {{canvasHeight}}px;">					
+							<canvas id="designer-canvas" width={{canvasHeight}} height={{canvasHeight}}  style="-webkit-user-select: none;"></canvas>
 						</div>
-					</div>
+					</div>-->
 
 						<!--<div class="outer-holder">
 

@@ -149,6 +149,13 @@ angular.module('app.controller', [])
     $scope.msg = 'Customize the product';
     $scope.selectedItem = window.localStorage.getItem('selectedItem');
      $scope.selectedItemDimensions = localStorageService.get('selectedItemDimensions');
+   $scope.maxWidth = 300;
+   $scope.maxHeight =300;
+  // $scope.ratio =  $scope.maxWidth/$scope.selectedItemDimensions.width;
+   $scope.canvasWidth  = $scope.selectedItemDimensions.y + $scope.selectedItemDimensions.width;
+   $scope.canvasHeight  = $scope.selectedItemDimensions.x + $scope.selectedItemDimensions.height;
+   console.log($scope.canvasWidth, $scope.canvasHeight)
+
      console.log( $scope.selectedItemDimensions);
 
 
