@@ -1,53 +1,57 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-	<div class="row">
-		<div class="col-md-12">
-            <div class="row font-category-selector">
-                <div class="col-xs-8">
-			         <h3 style="margin-top: 10px;" translate>Select a graphic</h3>
-                </div>                
-                <div class="col-xs-4">
-                    
-                    <!-- Single button -->
-                    <div class="btn-group  pull-right">
-                      <button type="button" class="btn btn-default dropdown-toggle btn-categories" data-toggle="dropdown">
+<div class="panel panel-default" ng-init="previous()">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row font-category-selector">
+                    <div class="col-xs-8">
+                        <h3 style="margin-top: 10px;" translate>Select a graphic</h3>
+                    </div>
+                    <div class="col-xs-4">
+
+                        <!-- Single button -->
+                        <div class="btn-group  pull-right">
+                            <button type="button" class="btn btn-default dropdown-toggle btn-categories" data-toggle="dropdown">
                         {{selectedCategory}} &nbsp;<span class="caret"></span>
                       </button>
-                      <ul class="dropdown-menu  pull-right dropdown-clipart" role="menu">
-                        <li>
-                        <div class="row font-category-selector">
-                            <div class="col-xs-4" ng-repeat="category in categories">
-                                <a href="" ng-click="setCategory(category)" ng-class="{selected: category == selectedCategory}">{{category}}</a>
-                            </div>
-                        </div>  
-                        </li>
-                      </ul>
+                            <ul class="dropdown-menu  pull-right dropdown-clipart" role="menu">
+                                <li>
+                                    <div class="row font-category-selector">
+                                        <div class="col-xs-4" ng-repeat="category in categories">
+                                            <a href="" ng-click="setCategory(category)" ng-class="{selected: category == selectedCategory}">{{category}}</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </div>
-                
-            </div>
-            <div class="row font-category-selector" style="display: none;">
-                <div class="col-xs-4" ng-repeat="category in categories">
-                    <a href="" ng-click="setCategory(category)" ng-class="{selected: category == selectedCategory}">{{category}}</a>
-                </div>
-            </div>
-            <hr />
-            <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="50" suppress-scroll-x="true">
-                <div class="row clipArt-selector">
-                    <div class="col-xs-2 clipArt-thumbnail" ng-repeat="img in clipArt">
-                        <a href="">
-                             <img ng-click="addClipart(img.svg.url)" ng-src="{{img.svg.url}}" />
-                            
-                        </a>
+                <div class="row font-category-selector" style="display: none;">
+                    <div class="col-xs-4" ng-repeat="category in categories">
+                        <a href="" ng-click="setCategory(category)" ng-class="{selected: category == selectedCategory}">{{category}}</a>
                     </div>
                 </div>
-                	
-             </perfect-scrollbar>
-                	
+                <hr />
+                <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="50" suppress-scroll-x="true">
+                    <div class="row clipArt-selector">
+                        <div class="col-xs-2 clipArt-thumbnail" ng-repeat="img in clipArt">
+                            <a href="">
+                                <img ng-click="addClipart(img.svg.url)" ng-src="{{img.svg.url}}" />
 
-		</div>		
-	</div>	
-	<br />
-	</div>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="pagination pagination-sm">
+                        <li ng-click="previous();"><a ng-if="totalPages[0]==11">Pre</a></li>
+                        <li ng-repeat="n in totalPages" ng-click="setPage(n)"><a>{{n}}</a></li>
+                        <li ng-click="next();"><a ng-if="currentPage==10 && totalPages[0]==1">Next</a></li>
+                    </ul>
+                </perfect-scrollbar>
+
+
+            </div>
+        </div>
+        <br />
+    </div>
 </div>

@@ -5,13 +5,27 @@
  */
 angular.module('myApp').controller('ImagesGraphicsController', function ($scope, $location, $urlRouter,
   $stateParams, $http, $timeout, ApiService, $state, $rootScope) {
-  $scope.categories = ['Animals', 'Arrows', 'Callouts', 'Characters', 'Clock', 'Clothes', 'Computers', 'FlowCharts', 'Flowers', 'Fruits', 'Happy', 'Holidays', 'Misc', 'Office', 'People', 'Shapes', 'Signs', 'Silhouttes', 'Special', 'Symbols', 'Toys', 'Weather']
+  $scope.categories = ['Animals', 'Arrows', 'Callouts', 'Characters','Love', 'Clock', 'Clothes', 'Computers', 'FlowCharts', 'Flowers', 'Fruits', 'Happy', 'Holidays', 'Misc', 'Office', 'People', 'Shapes', 'Signs', 'Silhouttes', 'Special', 'Symbols', 'Toys', 'Weather']
   $scope.selectedCategory = $scope.categories[0]
   $scope.currentPage = 1
   $rootScope.canvas = new fabric.Canvas('designer-canvas', {
     hoverCursor: 'pointer',
     selection: true
   })
+  $scope.previous = function () {
+    $scope.totalPages = []
+    for (let i = 1; i < 11; i++) {
+      $scope.totalPages.push(i)
+    }
+  }
+
+  $scope.next = function () {
+    $scope.totalPages = []
+    for (let i = 11; i < 21; i++) {
+      $scope.totalPages.push(i)
+    }
+  }
+
   $scope.selectedItem = window.localStorage.getItem('selectedItem')
 
   $rootScope.canvas.on('after:render', function () {
@@ -81,14 +95,14 @@ angular.module('myApp').controller('ImagesGraphicsController', function ($scope,
   }
 
   $scope.setCategory = function (category) {
-    $scope.selectedCategory = category;
-    $scope.currentPage = 1;
-    $scope.loadClipArt();
+    $scope.selectedCategory = category
+    $scope.currentPage = 1
+    $scope.loadClipArt()
   }
 
   $scope.setPage = function (page) {
-    $scope.currentPage = page;
-    $scope.loadClipArt();
+    $scope.currentPage = page
+    $scope.loadClipArt()
   }
 
   $scope.loadClipArt = function () {
