@@ -35,20 +35,19 @@
             <hr />
             <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="50" suppress-scroll-x="true">
                 <div class="row clipArt-selector">
-                    <div class="col-xs-3 clipArt-thumbnail" ng-repeat="img in clipArt">
+                    <div class="col-xs-2 clipArt-thumbnail" ng-repeat="img in clipArt">
                         <a href="">
-                             <img ng-click="addClipart('http://fabricjs.com/assets/'+img+'.svg')" ng-src="http://fabricjs.com/assets/{{img}}.svg" />
+                             <img ng-click="addClipart(img.svg.url)" ng-src="{{img.svg.url}}" />
                             
                         </a>
                     </div>
                 </div>
-            </perfect-scrollbar>
-            
+                	
+             </perfect-scrollbar>
+                	
 
 		</div>		
 	</div>	
 	<br />
-
-      
 	</div>
 </div>
