@@ -10,7 +10,7 @@ angular.module('myApp', [
   'LocalStorageModule'
   //'ngResource'
 ])
-  .config(['$stateProvider', '$urlRouterProvider', 'UIRouterMetatagsProvider', function ($stateProvider, $urlRouterProvider, UIRouterMetatagsProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', 'UIRouterMetatagsProvider',  '$locationProvider',  function ($stateProvider, $urlRouterProvider, UIRouterMetatagsProvider,  $locationProvider) {
     var keywords = 'camdy, camdy app, print, gift, photo, malaysia, print in malaysia, eprint in malaysia,\
     customized gift, customised gift, personalized gift, personalised gift, print on t-shirt, print on cuhsion,\
    print on mug, print on mousepad, print on ceramic tile, print on puzzle, print on phone cover, print photo 4R,\
@@ -212,7 +212,10 @@ angular.module('myApp', [
         url: '/edit',
         templateUrl: 'app/views/text.edit.html',
         controller: 'TextEditController'
-      })
+      });
+
+      $locationProvider.html5Mode(true);
+
   }])
   .run(['$rootScope', 'MetaTags', function ($rootScope, MetaTags) {
     $rootScope.MetaTags = MetaTags

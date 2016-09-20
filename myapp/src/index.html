@@ -50,6 +50,7 @@
         <title ng-bind="MetaTags.title">
             CAMDY
         </title>
+        <base href="/myapp">
         <meta content="{{MetaTags.description}}" name="description"/>
         <meta content="{{MetaTags.keywords}}" name="keywords"/>
         <meta content="{{value}}" ng-repeat="(key, value) in MetaTags.properties" property="{{key}}"/>
