@@ -7,9 +7,9 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: '../laravel/public/api/v1/faqs'
-    }).then(function mySuccess(response) {
+    }).then(function mySuccess (response) {
       $scope.faqs = response.data.data
-    }, function myError(response) {
+    }, function myError (response) {
       $scope.faqs = response.status + response.statusText
     })
     $scope.msg = 'FAQ'
@@ -19,9 +19,9 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: '../laravel/public/api/v1/blogs'
-    }).then(function mySuccess(response) {
+    }).then(function mySuccess (response) {
       $scope.blogs = response.data
-    }, function myError(response) {
+    }, function myError (response) {
       $scope.blogs = response.status + response.statusText
     })
     $scope.msg = 'blog'
@@ -32,10 +32,10 @@ angular.module('app.controller', [])
       method: 'GET',
       // url: "http://camdy.app/laravel/public/api/v1/blogs/" + $stateParams.id
       url: '../laravel/public/api/v1/blogs/' + $stateParams.id
-    }).then(function mySuccess(response) {
+    }).then(function mySuccess (response) {
       $scope.blogs = response.data.data
       $scope.titles = response.data.data.title
-    }, function myError(response) {
+    }, function myError (response) {
       $scope.blogs = response.status + response.statusText
     })
     $scope.msg = 'blog Detail'
@@ -77,9 +77,9 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: API_URL + 'merchandise/?order=sort'
-    }).then(function mySuccess(response) {
+    }).then(function mySuccess (response) {
       $scope.products = response.data
-    }, function myError(response) {
+    }, function myError (response) {
       $scope.products = response.status + response.statusText
     })
     $scope.msg = 'PrintShop'
@@ -89,9 +89,9 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: API_URL + 'merchandise/' + $stateParams.category
-    }).then(function mySuccess(response) {
+    }).then(function mySuccess (response) {
       $scope.products = response.data
-    }, function myError(response) {
+    }, function myError (response) {
       $scope.products = response.status + response.statusText
     })
     $scope.category = $stateParams.category
@@ -102,34 +102,32 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
-    }).then(function mySuccess(response) {
+    }).then(function mySuccess (response) {
       $scope.product = response.data[0]
-      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]];
-      $scope.activeImage = $scope.product.images[0];
-      window.localStorage.setItem("selectedItem", $scope.product.images[0]);
-      localStorageService.set("selectedItemDimensions", $scope.currentSize[0].dimensions);
-      $scope.product = response.status + response.statusText;
-    });
+      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]]
+      $scope.activeImage = $scope.product.images[0]
+      localStorageService.set('selectedItemDimensions', $scope.currentSize[0].dimensions)
+      localStorageService.set('selectedItem', $scope.product)
+      $scope.product = response.status + response.statusText
+    })
 
     $scope.setCurrentSize = function (item, index) {
-
       if (item) {
-        $scope.activeImage = $scope.product.images[0];
-        $scope.currentSize = item;
-        $scope.selectedItem = null;
-        localStorageService.set("selectedItemDimensions", item[0].dimensions);
-        window.localStorage.setItem("selectedItem", $scope.product.images[0]);
-
+        $scope.activeImage = $scope.product.images[0]
+        $scope.currentSize = item
+        $scope.selectedItem = null
+        localStorageService.set('selectedItemDimensions', item[0].dimensions)
+        localStorageService.set('selectedItem', $scope.product.images)
       } else {
-        localStorageService.set("selectedItemDimensions", $scope.currentSize[index].dimensions);
-        $scope.selectedItem = $scope.currentSize[index];
-        $scope.activeImage = $scope.selectedItem.template_image;
-        // $rootScope.desiredItem = $scope.activeImage;
-        window.localStorage.setItem("selectedItem", $scope.activeImage);
+        localStorageService.set('selectedItemDimensions', $scope.currentSize[index].dimensions)
+        $scope.selectedItem = $scope.currentSize[index]
+        $scope.activeImage = $scope.selectedItem.template_image
+        // $rootScope.desiredItem = $scope.activeImage
+        localStorageService.set('selectedItem', $scope.selectedItem)
       }
       // console.log($scope.selectedItem)
 
-    };
+    }
 
     $scope.getColor = function (color) {
       return {
@@ -145,19 +143,21 @@ angular.module('app.controller', [])
       $scope.activeImage = img
     }
   })
-  .controller('customizeCtrl', function ($scope, $http,localStorageService) {
-    $scope.msg = 'Customize the product';
-    $scope.selectedItem = window.localStorage.getItem('selectedItem');
-     $scope.selectedItemDimensions = localStorageService.get('selectedItemDimensions');
-   $scope.maxWidth = 300;
-   $scope.maxHeight =300;
-  // $scope.ratio =  $scope.maxWidth/$scope.selectedItemDimensions.width;
-   $scope.canvasWidth  = $scope.selectedItemDimensions.y + $scope.selectedItemDimensions.width;
-   $scope.canvasHeight  = $scope.selectedItemDimensions.x + $scope.selectedItemDimensions.height;
-   console.log($scope.canvasWidth, $scope.canvasHeight)
+  .controller('customizeCtrl', function ($scope, $http, localStorageService) {
+    $scope.msg = 'Customize the product'
+    $scope.selectedItemObject = localStorageService.get('selectedItem').images
+    $scope.selectedItem = $scope.selectedItemObject[0]
+    $scope.changeSelectedItem = function (img) {
+      $scope.selectedItem = img
+    }
+    $scope.selectedItemDimensions = localStorageService.get('selectedItemDimensions')
+    $scope.maxWidth = 300
+    $scope.maxHeight = 300
+    $scope.x = $scope.selectedItemDimensions.x
+    $scope.y = $scope.selectedItemDimensions.y
+    // $scope.ratio =  $scope.maxWidth/$scope.selectedItemDimensions.width
+    $scope.canvasWidth =  $scope.selectedItemDimensions.width
+    $scope.canvasHeight =  $scope.selectedItemDimensions.height
 
-     console.log( $scope.selectedItemDimensions);
-
-
-  });
-
+    console.log($scope.selectedItemDimensions)
+  })

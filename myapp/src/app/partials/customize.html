@@ -8,63 +8,22 @@
 				<div class="row">
 					<!-- Product Image -->
 					<div class="product-image-2 col-md-6 col-xs-12">
-
-<!--	EDITOR      -->					
-					<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
-						<img id="tshirtFacing" src="{{selectedItem}}"></img>
-						<div id="drawingArea" style="position: absolute;top: 51px;left: 148px;z-index: 10;width: 200px;height: 400px;">					
-							<canvas id="designer-canvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
-						</div>
-					</div>
-
-
-
-
-		<!--	EDITOR      -->					
-					<!--<div id="shirtDiv"  style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
-						<img id="tshirtFacing" src="{{selectedItem}}"></img>
-						<div id="drawingArea" style="position: absolute;top: 51px;left: 148px;z-index: 10;width: {{canvasWidth}}px;height: {{canvasHeight}}px;">					
-							<canvas id="designer-canvas" width={{canvasHeight}} height={{canvasHeight}}  style="-webkit-user-select: none;"></canvas>
-						</div>
-					</div>-->
-
-						<!--<div class="outer-holder">
-
-
-							<div id="designer-product" ng-style="{ 'width' : designerWidth, 'height' : designerHeight, 'left' :designerLeft }">
-
-								<div id="designer-holder" ng-style="{ 'top' : calcLeft(designerHeight * zoom, designerHeight), 'left' : calcLeft(designerWidth * zoom, designerWidth), 'width' : designerWidth * zoom, 'height' : designerHeight * zoom }">
-                            <img ng-src="{{selectedItem}}"/>
-                        </div>
-
-								<div id="designer-holder">
-									<canvas id="designer-canvas" width="500" height="500"></canvas>
-								</div>
-
-							
-
-
+						<!--	EDITOR      -->
+						<div id="shirtDiv" class="page" style="width: 530px; height: 500px; position: relative; background-color: rgb(255, 255, 255);">
+							<img id="tshirtFacing" src="{{selectedItem}}"></img>
+					<div ng-if=" canvasWidth && canvasHeight" id="drawingArea" style="position: absolute;top: {{x}}px;left: {{x + y/2}}px;z-index: 10;width: 300px;height: 300px;">
+								<canvas  id="designer-canvas" width="{{canvasWidth + x}}" height="{{canvasHeight + y}}" class="hover" style="-webkit-user-select: none;"></canvas>
 							</div>
 						</div>
--->
-
-
-						<!-- Product Image Tab container -->
-						<!--<div class="pro-image-tab-container tab-content fix">
-							<!-- Product Image Tab 
-							<div class="pro-image-tab tab-pane active" id="image-1">
-								<img src="{{desiredItem}}" alt="" />
-							</div>
-						</div>-->
-						<!-- Product Image Tab List -->
+						<ul class="pro-image-tab-list-2">
+							<li ng-repeat="img in  selectedItemObject" ng-class="{active: activeImage== img}" class=" pointer" ng-click="changeSelectedItem(img)">
+								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
+							</li>
+						</ul>
 					</div>
 					<!-- Product Info -->
-					<div class="col-md-6 col-xs-12">
-						<h1>Tabs here</h1>
-
-
+					<div id="tabs" class="col-md-6 col-xs-12">
 						<div class="btn-group btn-group-justified btn-menu hidden-xs" ng-click="editMode = 'none'">
-
 							<a ui-sref="custom.images.home" ng-click="editMode = 'none'" class="btn btn-default" ng-class="{active: (activeTab == 'images' && editMode == 'none') || editMode == 'image'}"><i class="fa fa-camera"></i><br />
 								<translate>Add image</translate>
 							</a>
@@ -82,7 +41,6 @@
 						<div class="view-animate-container" ng-show="editMode == 'none'">
 							<div ui-view></div>
 						</div>
-
 
 
 					</div>
