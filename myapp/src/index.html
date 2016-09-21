@@ -50,10 +50,10 @@
         <title ng-bind="MetaTags.title">
             CAMDY
         </title>
-        <base href="/myapp">
+        <base href="/">
         <meta content="{{MetaTags.description}}" name="description"/>
         <meta content="{{MetaTags.keywords}}" name="keywords"/>
-        <meta content="{{value}}" ng-repeat="(key, value) in MetaTags.properties" property="{{key}}"/>
+        <!--<meta content="{{value}}" ng-repeat="(key, value) in MetaTags.properties" property="{{key}}"/>-->
         <meta content="{{MetaTags.prerender.statusCode}}" name="prerender-status-code"/>
         <meta content="{{MetaTags.prerender.header}}" name="prerender-header" ng-if="MetaTags.prerender.header"/>
         <meta content="width=device-width" name="viewport"/>

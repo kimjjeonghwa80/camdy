@@ -4,8 +4,9 @@
  * 
  */
 angular.module('myApp').controller('ImagesGraphicsController', function ($scope, $location, $urlRouter,
-  $stateParams, $http, $timeout, ApiService, $state, $rootScope) {
-  $scope.categories = ['Animals', 'Arrows', 'Callouts', 'Characters','Love', 'Clock', 'Clothes', 'Computers', 'FlowCharts', 'Flowers', 'Fruits', 'Happy', 'Holidays', 'Misc', 'Office', 'People', 'Shapes', 'Signs', 'Silhouttes', 'Special', 'Symbols', 'Toys', 'Weather']
+  $stateParams, $http, $timeout, ApiService, $state, $rootScope,localStorageService ) {
+  $scope.categories = ['Animals', 'Arrows', 'Callouts', 'Characters','Love', 'Clock', 'Clothes', 'Computers', 'FlowCharts', 'Flowers',
+   'Fruits', 'Happy', 'Holidays', 'Misc', 'Office', 'People', 'Shapes', 'Signs', 'Silhouttes', 'Special', 'Symbols', 'Toys', 'Weather']
   $scope.selectedCategory = $scope.categories[0]
   $scope.currentPage = 1
   $rootScope.canvas = new fabric.Canvas('designer-canvas', {
@@ -26,7 +27,7 @@ angular.module('myApp').controller('ImagesGraphicsController', function ($scope,
     }
   }
 
-  $scope.selectedItem = window.localStorage.getItem('selectedItem')
+  $scope.selectedItem = localStorageService.get('selectedItem')
 
   $rootScope.canvas.on('after:render', function () {
     $rootScope.canvas.contextContainer.strokeStyle = '#555'

@@ -78,17 +78,16 @@ angular.module('myApp').controller('ImagesUploadController', function ($scope,
     }).success(function (data, status, headers, config) {
       console.log(data)
       var imageUrl = data.data.img_url
-      if (window.localStorage.getItem('uploadedItems')) {
-        var uploaded = JSON.parse(window.localStorage.getItem('uploadedItems'))
-        // window.localStorage.getItem('uploadedItems')
+      if (localStorageService.get('uploadedItems')) {
+        var uploaded =  localStorageService.get('uploadedItems');
         uploaded.push(imageUrl)
-        window.localStorage.setItem('uploadedItems', JSON.stringify(uploaded))
+        localStorageService.set('uploadedItems', uploaded);
+       
       } else {
         var arr = [imageUrl]
-        window.localStorage.setItem('uploadedItems', JSON.stringify(arr))
+        localStorageService.set('uploadedItems',arr)
       }
 
-      //      window.localStorage.setItem("uploadedItems",[])        
 
       // file is uploaded successfully
       //  $scope.addImage(  $scope.uploadURL(data.filepath) )

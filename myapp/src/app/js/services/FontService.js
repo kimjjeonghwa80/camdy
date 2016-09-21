@@ -1,5 +1,5 @@
 angular.module('myApp').service('FontService', function( 
- ApiService, $q, $interval, $http ) {
+ ApiService, $q, $interval, $http, localStorageService ) {
 
 	this.fonts = {};
 	this.fontList = [];
@@ -7,7 +7,7 @@ angular.module('myApp').service('FontService', function(
 
 	this.init = function(){
 		
-		var fonts = window.localStorage.getItem('fonts');
+		var fonts = localStorageService.get('fonts');
 		if(fonts) {
 			this.fonts = fonts;
 		}
@@ -20,7 +20,7 @@ angular.module('myApp').service('FontService', function(
 			$('head').append('<link rel="stylesheet" type="text/css" href="'+ApiService.fontUrl(font.regular.stylesheet)+'">');
 		}
 		this.fonts[font.name] = font;
-		      window.localStorage.setItem("fonts",this.fonts);
+		      localStorageService.set("fonts",this.fonts);
 
 			};
 

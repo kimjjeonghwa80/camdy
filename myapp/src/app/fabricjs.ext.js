@@ -124,7 +124,7 @@ function deleteObject () {
   confirm({
     text: 'Are you sure you want to delete this item?',
     confirm: function () {
-      var scope = angular.element(document.getElementById('designer-controller')).scope()
+      var scope = angular.element($document.getElementById('designer-controller')).scope()
 
       var activeObject = scope.canvas.getActiveObject(),
         activeGroup = scope.canvas.getActiveGroup()
@@ -158,7 +158,6 @@ function deleteObject () {
       // nothing to do
     }
   })
-  window.document.getElementsByClassName('active')[0].click()
   // angular.element('.btn-group').click()
 
 }

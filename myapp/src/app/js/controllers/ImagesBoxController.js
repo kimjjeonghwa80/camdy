@@ -1,5 +1,5 @@
 angular.module('myApp').controller('ImagesBoxController', function( $scope,
- $location, $urlRouter, $stateParams, $http, $timeout, ApiService) {
+ $location, $urlRouter, $stateParams, $http, $timeout, ApiService, localStorageService) {
     
     window.scope = $scope;
     
@@ -7,8 +7,7 @@ angular.module('myApp').controller('ImagesBoxController', function( $scope,
    // $scope.setActiveTab('images');
     
     $scope.loadMyImages = function() {
-       $scope.myImages=  JSON.parse(window.localStorage.getItem('uploadedItems'));
-       console.log($scope.myImages);
+       $scope.myImages=  localStorageService.get('uploadedItems');
     }
     
     $scope.init = function() {
