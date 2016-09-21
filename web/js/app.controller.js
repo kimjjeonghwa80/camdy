@@ -1,5 +1,5 @@
 // var API_URL = "http://localhost:8000/"
-var API_URL = 'https://api.dropp.photo/'
+var API_URL = 'https://api.dropp.photo/';
 
 angular.module('app.controller', [])
 
@@ -31,7 +31,7 @@ angular.module('app.controller', [])
     $http({
       method: 'GET',
       // url: "http://camdy.app/laravel/public/api/v1/blogs/" + $stateParams.id
-      url: '../laravel/public/api/v1/blogs/' + $stateParams.id
+      url: '../laravel/public/api/v1/blogs/' + $stateParams.slug
     }).then(function mySuccess (response) {
       $scope.blogs = response.data.data
       $scope.titles = response.data.data.title

@@ -9,7 +9,7 @@
                     <div ng-class="{'sin-blog-others' : !$first, 'sin-blog' : $first }">
                         <div class="blog-image" ng-show="$first">
                             <img ng-src="../laravel/public/uploads/{{blog.photo_main}}"/>
-                            <a ng-href="#/blog/{{blog.id}}">
+                            <a ui-sref="blogDetail({slug:blog.slug})">
                                 Continue Reading
                             </a>
                         </div>
@@ -20,7 +20,7 @@
                                 </a>
                             </div>
                             <div class="title">
-                                <a ui-sref="blogDetail({id:blog.id})">
+                                <a ui-sref="blogDetail({slug:blog.slug})">
                                     {{blog.title}}
                                 </a>
                             </div>
@@ -28,6 +28,7 @@
                                 {{blog.date_posted}}
                             </div>
                             <p>
+                             
                                 <div ng-bind-html="blog.description | words: 34">
                                 </div>
                             </p>
