@@ -10,7 +10,7 @@
 					<div class="product-image-2 col-md-6 col-xs-12">
 						<!--	EDITOR      -->
 						<div id="shirtDiv" class="page" style="width: 530px; height: 500px; position: relative; background-color: rgb(255, 255, 255);">
-							<img id="tshirtFacing" src="{{selectedItem}}"></img>
+							<img id="tshirtFacing" src="{{selectedItem || selectedItemObject.images[0]}}"></img>
 					<div ng-if=" canvasWidth && canvasHeight" id="drawingArea" style="position: absolute;top: {{x}}px;left: {{x + y/2}}px;z-index: 10;width: 300px;height: 300px;">
 								<canvas  id="designer-canvas" width="{{canvasWidth + x}}" height="{{canvasHeight + y}}" class="hover" style="-webkit-user-select: none;"></canvas>
 							</div>

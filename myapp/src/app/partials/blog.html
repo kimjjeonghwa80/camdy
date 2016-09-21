@@ -4,7 +4,8 @@
             NEWS
         </h1>
         <div class="row">
-            <div ng-repeat="blog in blogs | orderBy : '-id'">
+            <div >
+                <!--ng-repeat="blog in blogs | orderBy : '-id'">-->
                 <div class="col-sm-6">
                     <div ng-class="{'sin-blog-others' : !$first, 'sin-blog' : $first }">
                         <div class="blog-image" ng-show="$first">
