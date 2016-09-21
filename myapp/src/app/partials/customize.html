@@ -16,7 +16,7 @@
 							</div>
 						</div>
 						<ul class="pro-image-tab-list-2">
-							<li ng-repeat="img in  selectedItemObject" ng-class="{active: activeImage== img}" class=" pointer" ng-click="changeSelectedItem(img)">
+							<li ng-repeat="img in  selectedItemObject.images" ng-class="{active: activeImage== img}" class=" pointer" ng-click="changeSelectedItem(img)">
 								<a data-toggle="tab"><img src="{{img}}" alt="" /></a>
 							</li>
 						</ul>

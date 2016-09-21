@@ -98,55 +98,10 @@ angular.module('app.controller', [])
     $scope.msg = 'PrintShop Detail'
   })
 
-  .controller('printshopDetailCtrl', function ($scope, $sce, $stateParams, $http, $state, $rootScope, localStorageService) {
-    $http({
-      method: 'GET',
-      url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
-    }).then(function mySuccess (response) {
-      $scope.product = response.data[0]
-      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]]
-      $scope.activeImage = $scope.product.images[0]
-      localStorageService.set('selectedItemDimensions', $scope.currentSize[0].dimensions)
-      localStorageService.set('selectedItem', $scope.product)
-      $scope.product = response.status + response.statusText
-    })
-
-    $scope.setCurrentSize = function (item, index) {
-      if (item) {
-        $scope.activeImage = $scope.product.images[0]
-        $scope.currentSize = item
-        $scope.selectedItem = null
-        localStorageService.set('selectedItemDimensions', item[0].dimensions)
-        localStorageService.set('selectedItem', $scope.product.images)
-      } else {
-        localStorageService.set('selectedItemDimensions', $scope.currentSize[index].dimensions)
-        $scope.selectedItem = $scope.currentSize[index]
-        $scope.activeImage = $scope.selectedItem.template_image
-        // $rootScope.desiredItem = $scope.activeImage
-        localStorageService.set('selectedItem', $scope.selectedItem)
-      }
-      // console.log($scope.selectedItem)
-
-    }
-
-    $scope.getColor = function (color) {
-      return {
-        'background-color': color + '!important'
-      }
-    }
-
-    $scope.deliberatelyTrustDangerousSnippet = function (htmlString) {
-      return $sce.trustAsHtml(htmlString)
-    }
-
-    $scope.setActiveImage = function (img) {
-      $scope.activeImage = img
-    }
-  })
   .controller('customizeCtrl', function ($scope, $http, localStorageService) {
     $scope.msg = 'Customize the product'
-    $scope.selectedItemObject = localStorageService.get('selectedItem').images
-    $scope.selectedItem = $scope.selectedItemObject[0]
+    $scope.selectedItemObject = localStorageService.get('selectedItem');
+    $scope.selectedItem = $scope.selectedItemObject.template_image;
     $scope.changeSelectedItem = function (img) {
       $scope.selectedItem = img
     }
@@ -158,6 +113,4 @@ angular.module('app.controller', [])
     // $scope.ratio =  $scope.maxWidth/$scope.selectedItemDimensions.width
     $scope.canvasWidth =  $scope.selectedItemDimensions.width
     $scope.canvasHeight =  $scope.selectedItemDimensions.height
-
-    console.log($scope.selectedItemDimensions)
   })

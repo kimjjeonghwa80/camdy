@@ -1,16 +1,16 @@
 angular.module('myApp', [
   'ngSanitize',
-  //'truncate',
- // 'ui.router',
+  // 'truncate',
+   'ui.router',
   'ui.bootstrap',
   'app.controller',
   'app.directive',
   'ui.router.metatags',
   'ngFileUpload',
   'LocalStorageModule'
-  //'ngResource'
+// 'ngResource'
 ])
-  .config(['$stateProvider', '$urlRouterProvider', 'UIRouterMetatagsProvider',  '$locationProvider',  function ($stateProvider, $urlRouterProvider, UIRouterMetatagsProvider,  $locationProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', 'UIRouterMetatagsProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, UIRouterMetatagsProvider, $locationProvider) {
     var keywords = 'camdy, camdy app, print, gift, photo, malaysia, print in malaysia, eprint in malaysia,\
     customized gift, customised gift, personalized gift, personalised gift, print on t-shirt, print on cuhsion,\
    print on mug, print on mousepad, print on ceramic tile, print on puzzle, print on phone cover, print photo 4R,\
@@ -45,7 +45,7 @@ angular.module('myApp', [
         }
 
       })
-       .state('printshop', { // State demonstrating Nested views
+      .state('printshop', { // State demonstrating Nested views
         url: '/printshop',
         templateUrl: 'app/partials/printshop.html',
         controller: 'printshopCtrl',
@@ -66,7 +66,6 @@ angular.module('myApp', [
         templateUrl: 'app/partials/printshop_detail.html',
         controller: 'printshopDetailCtrl'
       })
-
 
       .state('contactus', {
         url: '/contactus',
@@ -103,7 +102,7 @@ angular.module('myApp', [
           title: 'PRIVACY & POLICY',
           keywords: keywords
         }
-      })      
+      })
       .state('blog', {
         url: '/blog',
         templateUrl: 'app/partials/blog.html',
@@ -212,10 +211,9 @@ angular.module('myApp', [
         url: '/edit',
         templateUrl: 'app/views/text.edit.html',
         controller: 'TextEditController'
-      });
+      })
 
-      $locationProvider.html5Mode(true);
-
+    $locationProvider.html5Mode(true)
   }])
   .run(['$rootScope', 'MetaTags', function ($rootScope, MetaTags) {
     $rootScope.MetaTags = MetaTags
