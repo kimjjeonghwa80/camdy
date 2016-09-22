@@ -117,11 +117,23 @@ angular.module('myApp', [
         templateUrl: 'app/partials/blog-detail.html',
         controller: 'blogDetailCtrl',
         metaTags: {
-          title: 'Blog',
+          title: 'Blog',     //can you make the title is same as blog detail?
           keywords: keywords
         }
 
       })
+      .state('shopping_cart', {
+        url: '/shopping_cart',
+        templateUrl: 'app/partials/shopping_cart.html'
+      })    
+      .state('checkout', {
+        url: '/checkout',
+        templateUrl: 'app/partials/checkout.html'
+      })     
+      .state('order_complete', {
+        url: '/order_complete',
+        templateUrl: 'app/partials/order_complete.html'
+      })          
       .state('customize-product', {
         url: '/product/custom',
         templateUrl: 'app/partials/customize.html',

@@ -13,7 +13,7 @@
     </url>
     <url>
         <loc>
-            http://www.camdy.photo/web/#/blog
+            http://www.camdy.photo/web/blog
         </loc>
         <priority>
             0.8
@@ -24,7 +24,7 @@
     </url>
     <url>
         <loc>
-            http://www.camdy.photo/web/#/contactus
+            http://www.camdy.photo/web/contactus
         </loc>
         <priority>
             0.8
@@ -35,7 +35,7 @@
     </url>
     <url>
         <loc>
-            http://www.camdy.photo/web/#/faq
+            http://www.camdy.photo/web/faq
         </loc>
         <priority>
             0.8
@@ -43,5 +43,27 @@
         <lastmod>
             2016-09-14
         </lastmod>
-    </url>    
+    </url>
+    <url>
+        <loc>
+            http://www.camdy.photo/web/terms_condition
+        </loc>
+        <priority>
+            0.8
+        </priority>
+        <lastmod>
+            2016-09-21
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.camdy.photo/web/privacy
+        </loc>
+        <priority>
+            0.8
+        </priority>
+        <lastmod>
+            2016-09-21
+        </lastmod>
+    </url>       
 </urlset>
