@@ -19,7 +19,8 @@
 <!-- Split button -->
 <div class="btn-group">
   <button type="button" class="btn btn-default" style="background: #fff; width: 87%; height: 36px;">
-      <img ng-cloak style="width: 153px; height: 31px; margin-top: -7px;" ng-src="{{selectedFont.image}}" />
+      <img ng-if="selectedFont.image" ng-cloak style="width: 153px; height: 31px; margin-top: -7px;" ng-src="{{  font_image(selectedFont.image)}}" />
+      <span ng-if="!selectedFont.image" ng-cloak style="width: 153px; height: 31px; margin-top: -7px;">Select Font</span> 
   </button>
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" ng-click="showFontSelector()">
     <span class="caret"></span>

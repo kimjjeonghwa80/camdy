@@ -1,6 +1,7 @@
-angular.module('myApp').factory('ApiService', function( ) {
+angular.module('myApp').factory('ApiService', function(apiUrl) {
 
   return {
+
     // baseUrl: function(url) {
     //   if(window.location.host.indexOf("localhost:") > -1) {
     //     return "http://localhost/apps/tshirt_test/"; //only used for development
@@ -12,7 +13,7 @@ angular.module('myApp').factory('ApiService', function( ) {
       return  url;
     },    
     fontUrl: function(url) {
-      return this.baseUrl() + "data/" + url;
+      return  apiUrl+"upload/data/" + url;
     },
     imageUrl: function(data) {
       return this.baseUrl() + "api/image.php?" + $.param( data );

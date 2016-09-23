@@ -1,10 +1,11 @@
 /* global malarkey:false, moment:false */
-(function() {
-  'use strict';
+;(function () {
+  'use strict'
 
   angular
     .module('myApp')
     .constant('malarkey', malarkey)
-    .constant('moment', moment);
-
-})();
+    .constant('_', window._)
+    .constant('apiUrl', 'http://localhost/printpixel/')
+    .constant('moment', moment)
+})()
