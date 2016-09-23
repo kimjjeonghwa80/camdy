@@ -4,15 +4,54 @@
  * 
  */
 angular.module('myApp').controller('ImagesGraphicsController', function ($scope, $location, $urlRouter,
-  $stateParams, $http, $timeout, ApiService, $state, $rootScope,localStorageService ) {
-  $scope.categories = ['Animals', 'Arrows', 'Callouts', 'Characters','Love', 'Clock', 'Clothes', 'Computers', 'FlowCharts', 'Flowers',
-   'Fruits', 'Happy', 'Holidays', 'Misc', 'Office', 'People', 'Shapes', 'Signs', 'Silhouttes', 'Special', 'Symbols', 'Toys', 'Weather']
+  $stateParams, $http, $timeout, ApiService, $state, $rootScope, localStorageService) {
+  $scope.categories = ['Animals', 'Arrows', 'Callouts', 'Characters', 'Love', 'Clock', 'Clothes', 'Computers', 'FlowCharts', 'Flowers',
+    'Fruits', 'Happy', 'Holidays', 'Misc', 'Office', 'People', 'Shapes', 'Signs', 'Silhouttes', 'Special', 'Symbols', 'Toys', 'Weather']
   $scope.selectedCategory = $scope.categories[0]
   $scope.currentPage = 1
-  $rootScope.canvas = new fabric.Canvas('designer-canvas', {
-    hoverCursor: 'pointer',
-    selection: true
-  })
+
+  // $rootScope.canvas = new fabric.Canvas('designer-canvas', {
+  //   hoverCursor: 'pointer',
+  //   selection: true
+  // })
+
+  // $rootScope.canvas.on('after:render', function () {
+  //   $rootScope.canvas.contextContainer.strokeStyle = '#555'
+
+  //   $rootScope.canvas.forEachObject(function (obj) {
+  //     var bound = obj.getBoundingRect()
+
+  //     $rootScope.canvas.contextContainer.strokeRect(
+  //       bound.left + 0.5,
+  //       bound.top + 0.5,
+  //       bound.width,
+  //       bound.height
+  //     )
+  //   })
+  // })
+
+  // $rootScope.canvas.findTarget = (function (originalFn) {
+  //   return function () {
+  //     var target = originalFn.apply(this, arguments)
+  //     if (target) {
+  //       if (this._hoveredTarget !== target) {
+  //         $rootScope.canvas.fire('object:over', { target: target })
+  //         if (this._hoveredTarget) {
+  //           $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
+  //         }
+  //         this._hoveredTarget = target
+  //       }
+  //     }
+  //     else if (this._hoveredTarget) {
+  //       $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
+  //       this._hoveredTarget = null
+  //     }
+  //     return target
+  //   }
+  // })($rootScope.canvas.findTarget)
+
+  $scope.clipArt = null
+  window.scope = $scope
   $scope.previous = function () {
     $scope.totalPages = []
     for (let i = 1; i < 11; i++) {
@@ -28,59 +67,13 @@ angular.module('myApp').controller('ImagesGraphicsController', function ($scope,
   }
 
   $scope.selectedItem = localStorageService.get('selectedItem')
-
-  $rootScope.canvas.on('after:render', function () {
-    $rootScope.canvas.contextContainer.strokeStyle = '#555'
-
-    $rootScope.canvas.forEachObject(function (obj) {
-      var bound = obj.getBoundingRect()
-
-      $rootScope.canvas.contextContainer.strokeRect(
-        bound.left + 0.5,
-        bound.top + 0.5,
-        bound.width,
-        bound.height
-      )
-    })
-  })
-
-  $rootScope.canvas.findTarget = (function (originalFn) {
-    return function () {
-      var target = originalFn.apply(this, arguments)
-      if (target) {
-        if (this._hoveredTarget !== target) {
-          $rootScope.canvas.fire('object:over', { target: target })
-          if (this._hoveredTarget) {
-            $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
-          }
-          this._hoveredTarget = target
-        }
-      }
-      else if (this._hoveredTarget) {
-        $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
-        this._hoveredTarget = null
-      }
-      return target
-    }
-  })($rootScope.canvas.findTarget)
-
-  $scope.clipArt = null
-  window.scope = $scope
-
   //  $scope.setActiveTab('images')
 
   $scope.addClipart = function (img) {
     fabric.loadSVGFromURL(img, function (objects, options) {
       var shape = fabric.util.groupSVGElements(objects, options)
       shape.scale(0.1)
-      //  {
-      //     left: 25,
-      //     top: 100,
-      //     width: 25,
-      //     height: 25,
-      //     cornersize: 10,
-      //     hasRotatingPoint: true
-      //   })
+      
       $rootScope.canvas.add(shape.scale(0.05)).setActiveObject(shape)
       //    $rootScope.canvas.renderAll()
 
