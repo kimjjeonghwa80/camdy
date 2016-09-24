@@ -1,5 +1,5 @@
 angular.module('myApp').service('FontService', function( 
- ApiService, $q, $interval, $http, localStorageService, apiUrl ) {
+ ApiService, $q, $interval, $http, localStorageService, apiUrl,_ ) {
 
 	this.fonts = {};
 	this.fontList = [];
@@ -19,7 +19,7 @@ angular.module('myApp').service('FontService', function(
 		if (!isFontAvailable(font.regular.fontface)) {
                     var stylUrl= apiUrl+"upload/data/"+font.regular.stylesheet;
 			
-			$('head').append('<link rel="stylesheet" type="text/css" href="'+stylUrl+'">');
+			angular.element(document.querySelector('head')).append('<link rel="stylesheet" type="text/css" href="'+stylUrl+'">');
 		}
 		this.fonts[font.name] = font;
 		      localStorageService.set("fonts",this.fonts);
@@ -38,7 +38,7 @@ angular.module('myApp').service('FontService', function(
 				if(!angular.isUndefined(fontRow)) {
                     var stylUrl= apiUrl+"upload/data/"+font.regular.stylesheet;
 
-					$('head').append('<link rel="stylesheet" type="text/css" href="'+stylUrl+'">');
+					angular.element(document.querySelector('head')).append('<link rel="stylesheet" type="text/css" href="'+stylUrl+'">');
 			        var stop = $interval(function() {
 			          if (isFontAvailable(font.regular.fontface)) {
 			            canvas.renderAll();
@@ -60,12 +60,12 @@ angular.module('myApp').service('FontService', function(
     	var deferred = $q.defer();
 
         $http({method: 'GET', url: apiUrl+"upload/api/fonts.php", cache: false}).
-        success(function(data, status, headers, config) {
+        success(function(data, status ) {
             self.fontList = data;
             self.fontCategories = _.uniq(_.pluck(self.fontList, 'category'));
             deferred.resolve(self);
         }).
-        error(function(data, status, headers, config) {
+        error(function(data, status) {
 			deferred.reject(data);
         });
 		return deferred.promise;

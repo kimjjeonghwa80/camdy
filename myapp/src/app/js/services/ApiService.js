@@ -14,16 +14,17 @@ angular.module('myApp').factory('ApiService', function(apiUrl) {
     },    
     fontUrl: function(url) {
       return  apiUrl+"upload/data/" + url;
-    },
-    imageUrl: function(data) {
-      return this.baseUrl() + "api/image.php?" + $.param( data );
-    },    
-    imageTransparentUrl: function(data) {
-      return this.baseUrl() + "api/image_transparent.php?" + $.param( data );
-    },
-    uploadURL: function(src) {
-      return this.baseUrl() + "storage/uploads/" + src;
     }
+    // ,
+    // imageUrl: function(data) {
+    //   return this.baseUrl() + "api/image.php?" + $.param( data );
+    // },    
+    // imageTransparentUrl: function(data) {
+    //   return this.baseUrl() + "api/image_transparent.php?" + $.param( data );
+    // },
+    // uploadURL: function(src) {
+    //   return this.baseUrl() + "storage/uploads/" + src;
+    // }
   };
   
 });

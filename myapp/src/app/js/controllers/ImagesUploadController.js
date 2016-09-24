@@ -26,7 +26,6 @@ angular.module('myApp').controller('ImagesUploadController', function ($scope,
   }
 
   $scope.onFileSelect = function ($files) {
-    console.log($files)
     $scope.error = false
     $scope.progress = 0
 
