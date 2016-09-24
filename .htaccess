@@ -24,3 +24,7 @@ ExpiresDefault "access 1 month"
    php_value upload_max_filesize 40M
    php_value post_max_size 40M
 </IfModule>
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin *
+</IfModule>
