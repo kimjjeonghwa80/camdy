@@ -4,8 +4,8 @@
  * 
  */
 angular.module('myApp').controller('ImagesController', function ($scope, $location, $urlRouter,
-  $state, $stateParams, $http, $timeout, $rootScope) {
-  window.scope = $scope
+  $state, $stateParams, $http, $timeout, $rootScope,$window) {
+  $window.scope = $scope
   $scope.isHome = ($state.name == 'custom.images.home')
   // $scope.setActiveTab('images')
 

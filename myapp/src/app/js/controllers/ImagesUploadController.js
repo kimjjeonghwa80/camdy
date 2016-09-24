@@ -4,7 +4,7 @@
  * 
  */
 angular.module('myApp').controller('ImagesUploadController', function ($scope,
-  $location, $urlRouter, $stateParams, $http, Upload, $timeout, ApiService,$rootScope) {
+  $location, $urlRouter, $stateParams, $http, Upload, $timeout, ApiService,$rootScope,localStorageService ) {
   $scope.progress = 0
   $scope.file = null
   $scope.src = null

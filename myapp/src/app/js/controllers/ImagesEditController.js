@@ -4,13 +4,13 @@
  * 
  */
 angular.module('myApp').controller('ImagesEditController', 
-function( $scope, $location, $urlRouter,
+function( $scope, $location, $urlRouter,$window,
  $stateParams, $state) {
 	    $scope.colors = null;
 	    $scope.item = null;
 	    $scope.canvasHeight = null;
 	    $scope.canvasWidth = null;
-        window.imageScope = $scope;
+        $window.imageScope = $scope;
      //   $scope.setActiveTab('images');
 
         $scope.eventColors = [

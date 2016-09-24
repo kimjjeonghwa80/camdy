@@ -76,12 +76,12 @@
  * 
  */
 angular.module('myApp').controller('TextController', function( $scope, 
-$location, $urlRouter, $stateParams, $state, $timeout, $http, ApiService,
+$location, $urlRouter, $stateParams, $state, $timeout, $http, ApiService,$window,
  $interval, FontService) {
     this.name = "TextController";
     this.params = $stateParams;
     $scope.addText = "";
-	window.scope = $scope;
+	$window.scope = $scope;
     $scope._ = _;
     $scope.fonts = [];
     $scope.FontService = FontService;
@@ -110,7 +110,7 @@ $location, $urlRouter, $stateParams, $state, $timeout, $http, ApiService,
         $scope.fonts = FontService.fontList;
         //console.log('Hello', $scope.fonts)
         $scope.fontCategories = FontService.fontCategories;
-        $scope.selectedFont = _.findWhere(window.scope.fonts, {name: $scope.defaultFont});
+        $scope.selectedFont = _.findWhere($window.scope.fonts, {name: $scope.defaultFont});
     }
     
 	$scope.font_image = function(font_image) {

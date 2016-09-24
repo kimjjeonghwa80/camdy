@@ -4,13 +4,13 @@
  * 
  */
 angular.module('myApp').controller('ImagesAddGraphicController', function( $scope, 
-$location, $urlRouter,$rootScope, $stateParams, $http, $timeout, ApiService, $state) {
+$location, $urlRouter,$rootScope, $stateParams, $http, $timeout, ApiService, $state,$window) {
     
    
     $scope._ = _;
     $scope.clipArt = null;
     $scope.categories = null;
-    window.scope = $scope;
+    $window.scope = $scope;
 
     //$scope.setActiveTab('images');
 

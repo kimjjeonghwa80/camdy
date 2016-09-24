@@ -3,10 +3,12 @@
  * Controller for editing text
  * 
  */
-angular.module('myApp').controller('TextEditController', function( $scope, $location, $urlRouter, $stateParams, $state, $timeout, ApiService, $http, $interval, FontService) {
+angular.module('myApp').controller('TextEditController', 
+function( $scope, $location, $urlRouter, $stateParams, $state, $timeout, 
+ApiService, $http, $interval, FontService, $window) {
    $scope.currentText = "";
 	$scope.item;
-	window.textScope = $scope;
+	$window.textScope = $scope;
     //$scope.setActiveTab('text');
     
     $scope.eventColors = [
@@ -173,7 +175,7 @@ angular.module('myApp').controller('TextEditController', function( $scope, $loca
     $scope.loadFonts = function() {
         $scope.fonts = FontService.fontList;
         $scope.fontCategories = FontService.fontCategories;
-        $scope.selectedFont = _.findWhere(window.scope.fonts, {name: $scope.defaultFont});
+        $scope.selectedFont = _.findWhere($window.scope.fonts, {name: $scope.defaultFont});
     }
 
     $scope.font_image = function(font_image) {

@@ -4,7 +4,7 @@
  * 
  */
 angular.module('myApp').controller('ImagesGraphicsController', function ($scope, $location, $urlRouter,
-  $stateParams, $http, $timeout, ApiService, $state, $rootScope, localStorageService) {
+  $stateParams, $http, $timeout, ApiService, $state, $rootScope, localStorageService,$window) {
   $scope.categories = ['Animals', 'Arrows', 'Callouts', 'Characters', 'Love', 'Clock', 'Clothes', 'Computers', 'FlowCharts', 'Flowers',
     'Fruits', 'Happy', 'Holidays', 'Misc', 'Office', 'People', 'Shapes', 'Signs', 'Silhouttes', 'Special', 'Symbols', 'Toys', 'Weather']
   $scope.selectedCategory = $scope.categories[0]
@@ -51,7 +51,7 @@ angular.module('myApp').controller('ImagesGraphicsController', function ($scope,
   // })($rootScope.canvas.findTarget)
 
   $scope.clipArt = null
-  window.scope = $scope
+  $window.scope = $scope
   $scope.previous = function () {
     $scope.totalPages = []
     for (let i = 1; i < 11; i++) {

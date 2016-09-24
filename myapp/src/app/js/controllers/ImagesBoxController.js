@@ -1,7 +1,7 @@
 angular.module('myApp').controller('ImagesBoxController', function( $scope,
- $location, $urlRouter, $stateParams, $http, $timeout, ApiService, localStorageService) {
+ $location, $urlRouter, $stateParams, $http, $timeout, ApiService, localStorageService,$window) {
     
-    window.scope = $scope;
+    $window.scope = $scope;
     
     $scope.myImages = [];
    // $scope.setActiveTab('images');
