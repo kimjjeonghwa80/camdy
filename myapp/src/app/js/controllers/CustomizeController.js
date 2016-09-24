@@ -5,7 +5,8 @@ angular.module('myApp').controller('customizeCtrl',
 
 $rootScope.canvas = new fabric.Canvas('designer-canvas', {
     hoverCursor: 'pointer',
-    selection: true
+    selection: true,
+		  selectionBorderColor:'blue'
   })
 
   $rootScope.canvas.on('after:render', function () {

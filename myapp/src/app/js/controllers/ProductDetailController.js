@@ -38,7 +38,7 @@ $stateParams, $http, $state, $rootScope, localStorageService) {
 
     $scope.getColor = function (color) {
       return {
-        'background-color': color + '!important'
+        'background-color': color
       }
     }
 
