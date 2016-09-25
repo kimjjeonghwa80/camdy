@@ -17,7 +17,7 @@
 						</div>
 						<!-- Product Image Tab List -->
 						<ul class="pro-image-tab-list-2">
-							<li ng-repeat="img in  selectedItem.images || product.images track by $index" ng-class="{active: activeImage== img}"
+							<li ng-repeat="img in  imageList track by $index" ng-class="{active: activeImage== img}"
 							class=" pointer" ng-click="setActiveImage(img)">
 								<a data-toggle="tab" ><img src="{{img}}" alt="" /></a>
 							</li>
