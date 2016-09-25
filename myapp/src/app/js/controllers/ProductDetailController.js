@@ -23,8 +23,8 @@ $stateParams, $http, $state, $rootScope, localStorageService) {
     $scope.setCurrentSize = function (item, index) {
       if (item) {
         $scope.activeImage = $scope.product.images[0]
-        $scope.currentSize = item
-        $scope.selectedItem = null
+        $scope.currentSize = item[0];
+        $scope.selectedItem = item[0];
         localStorageService.set('selectedItemDimensions', item[0].dimensions)
         localStorageService.set('selectedItem', $scope.product.images)
       } else {
