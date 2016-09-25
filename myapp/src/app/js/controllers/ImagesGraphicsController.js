@@ -10,45 +10,45 @@ angular.module('myApp').controller('ImagesGraphicsController', function ($scope,
   $scope.selectedCategory = $scope.categories[0]
   $scope.currentPage = 1
 
-  // $rootScope.canvas = new fabric.Canvas('designer-canvas', {
-  //   hoverCursor: 'pointer',
-  //   selection: true
-  // })
+  $rootScope.canvas = new fabric.Canvas('designer-canvas', {
+    hoverCursor: 'pointer',
+    selection: true
+  })
 
-  // $rootScope.canvas.on('after:render', function () {
-  //   $rootScope.canvas.contextContainer.strokeStyle = '#555'
+  $rootScope.canvas.on('after:render', function () {
+    $rootScope.canvas.contextContainer.strokeStyle = '#555'
 
-  //   $rootScope.canvas.forEachObject(function (obj) {
-  //     var bound = obj.getBoundingRect()
+    $rootScope.canvas.forEachObject(function (obj) {
+      var bound = obj.getBoundingRect()
 
-  //     $rootScope.canvas.contextContainer.strokeRect(
-  //       bound.left + 0.5,
-  //       bound.top + 0.5,
-  //       bound.width,
-  //       bound.height
-  //     )
-  //   })
-  // })
+      $rootScope.canvas.contextContainer.strokeRect(
+        bound.left + 0.5,
+        bound.top + 0.5,
+        bound.width,
+        bound.height
+      )
+    })
+  })
 
-  // $rootScope.canvas.findTarget = (function (originalFn) {
-  //   return function () {
-  //     var target = originalFn.apply(this, arguments)
-  //     if (target) {
-  //       if (this._hoveredTarget !== target) {
-  //         $rootScope.canvas.fire('object:over', { target: target })
-  //         if (this._hoveredTarget) {
-  //           $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
-  //         }
-  //         this._hoveredTarget = target
-  //       }
-  //     }
-  //     else if (this._hoveredTarget) {
-  //       $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
-  //       this._hoveredTarget = null
-  //     }
-  //     return target
-  //   }
-  // })($rootScope.canvas.findTarget)
+  $rootScope.canvas.findTarget = (function (originalFn) {
+    return function () {
+      var target = originalFn.apply(this, arguments)
+      if (target) {
+        if (this._hoveredTarget !== target) {
+          $rootScope.canvas.fire('object:over', { target: target })
+          if (this._hoveredTarget) {
+            $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
+          }
+          this._hoveredTarget = target
+        }
+      }
+      else if (this._hoveredTarget) {
+        $rootScope.canvas.fire('object:out', { target: this._hoveredTarget })
+        this._hoveredTarget = null
+      }
+      return target
+    }
+  })($rootScope.canvas.findTarget)
 
   $scope.clipArt = null
   $window.scope = $scope
