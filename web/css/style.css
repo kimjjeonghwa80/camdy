@@ -3603,7 +3603,6 @@ span {
   background: #1e136b;
 }
 .pro-color-size .pro-size {
-  width: 50%;
   float: left;
   display: block;
 }
@@ -4791,4 +4790,15 @@ span {
   font-family: 'Raleway', sans-serif;
   font-size: 50px;
   color: #04BED8;
+}
+.color-li {
+  list-style: none;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  margin-left: 6px;
+  border: 1px solid black;
+}
+.color-ul {
+  display: inline-flex;
 }

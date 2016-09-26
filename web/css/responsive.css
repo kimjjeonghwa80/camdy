@@ -1,4 +1,7 @@
 @media only screen and (max-width: 480px) {
+  * {
+    font-size: 16px;
+  }
   .logo {
     padding-left: 20px;
     margin-bottom: 20px;
@@ -6,9 +9,22 @@
   }
   .pages {
     margin-top: 100px;
+    font-size: 16px;
   }
   .pages h1 {
-    font-size: 34px;
+    font-size: 32px;
+    clear: both;
+  }
+  .pages h2 {
+    font-size: 26px;
+    clear: both;
+  }
+  .pages h3 {
+    font-size: 22px;
+    clear: both;
+  }
+  .pages h4 {
+    font-size: 18px;
     clear: both;
   }
   .about-area {
@@ -81,8 +97,22 @@
   }
   .pages {
     margin-top: 100px;
+    font-size: 16px;
   }
   .pages h1 {
+    font-size: 32px;
+    clear: both;
+  }
+  .pages h2 {
+    font-size: 26px;
+    clear: both;
+  }
+  .pages h3 {
+    font-size: 22px;
+    clear: both;
+  }
+  .pages h4 {
+    font-size: 18px;
     clear: both;
   }
   .header-search .search-form.active {
@@ -599,6 +629,25 @@
   }
 }
 @media only screen and (max-width: 992px) {
+  .pages {
+    font-size: 16px;
+  }
+  .pages h1 {
+    font-size: 32px;
+    clear: both;
+  }
+  .pages h2 {
+    font-size: 26px;
+    clear: both;
+  }
+  .pages h3 {
+    font-size: 22px;
+    clear: both;
+  }
+  .pages h4 {
+    font-size: 18px;
+    clear: both;
+  }
   .logo {
     margin-bottom: 20px;
     text-align: center;

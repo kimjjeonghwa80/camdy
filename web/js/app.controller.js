@@ -98,6 +98,7 @@ angular.module('app.controller', [])
     $scope.msg = 'PrintShop Detail'
   })
 
+/*
   .controller('printshopDetailCtrl', function ($scope, $sce, $stateParams, $http, $state, $rootScope) {
     $http({
       method: 'GET',
@@ -141,66 +142,52 @@ angular.module('app.controller', [])
       $scope.activeImage = img
     }
   })
- .controller('customizeCtrl', function ($scope, $http) {
-    $scope.msg = 'Customize the product';
-       $scope.selectedItem =  window.localStorage.getItem('selectedItem');
+  */
 
-  })
+  .controller('printshopDetailCtrl', function ($scope, $sce,
+  $stateParams, $http, $state, $rootScope, localStorageService) {
+  $scope.getMerchandize = function () {
+    $http({
+      method: 'GET',
+      url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
+    }).then(function mySuccess (response) {
+      $scope.product = response.data[0]
+      $scope.imageList = $scope.product.images
+      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]]
+      $scope.activeImage = $scope.product.images[0]
+      localStorageService.set('selectedItemDimensions', $scope.currentSize[0].dimensions)
+      localStorageService.set('selectedItem', $scope.product)
+    })
+  }
 
-  .controller('ExampleCtrl', ['$scope', 'Fabric', 'FabricConstants', 'Keypress',
-   function($scope, Fabric, FabricConstants, Keypress) {
+  $scope.setCurrentSize = function (item, index) {
+    if (item) {
+      $scope.imageList = $scope.product.images
+      $scope.activeImage = $scope.product.images[0]
+      $scope.currentSize = item
+      $scope.selectedItem = item[0]
+      localStorageService.set('selectedItemDimensions', item[0].dimensions)
+      localStorageService.set('selectedItem', $scope.product.images)
+    } else {
+      localStorageService.set('selectedItemDimensions', $scope.currentSize[index].dimensions)
+      $scope.selectedItem = $scope.currentSize[index]
+      $scope.imageList = $scope.selectedItem.images;      
+      $scope.activeImage = $scope.selectedItem.template_image
+      localStorageService.set('selectedItem', $scope.selectedItem)
+    }
+  }
 
-	$scope.fabric = {};
-	$scope.FabricConstants = FabricConstants;
+  $scope.getColor = function (color) {
+    return {
+      'background-color': color
+    }
+  }
 
-	//
-	// Creating Canvas Objects
-	// ================================================================
-	$scope.addShape = function(path) {
-		$scope.fabric.addShape('http://fabricjs.com/assets/15.svg');
-	};
+  $scope.deliberatelyTrustDangerousSnippet = function (htmlString) {
+    return $sce.trustAsHtml(htmlString)
+  }
 
-	$scope.addImage = function(image) {
-		$scope.fabric.addImage('http://stargate-sg1-solutions.com/blog/wp-content/uploads/2007/08/daniel-season-nine.jpg');
-	};
-
-	$scope.addImageUpload = function(data) {
-		var obj = angular.fromJson(data);
-		$scope.addImage(obj.filename);
-	};
-
-	//
-	// Editing Canvas Size
-	// ================================================================
-	$scope.selectCanvas = function() {
-		$scope.canvasCopy = {
-			width: $scope.fabric.canvasOriginalWidth,
-			height: $scope.fabric.canvasOriginalHeight
-		};
-	};
-
-	$scope.setCanvasSize = function() {
-		$scope.fabric.setCanvasSize($scope.canvasCopy.width, $scope.canvasCopy.height);
-		$scope.fabric.setDirty(true);
-		delete $scope.canvasCopy;
-	};
-
-	//
-	// Init
-	// ================================================================
-	$scope.init = function() {
-		$scope.fabric = new Fabric({
-			JSONExportProperties: FabricConstants.JSONExportProperties,
-			textDefaults: FabricConstants.textDefaults,
-			shapeDefaults: FabricConstants.shapeDefaults,
-			json: {}
-		});
-	};
-
-	$scope.$on('canvas:created', $scope.init);
-
-	Keypress.onSave(function() {
-		$scope.updatePage();
-	});
-
-}]);
+  $scope.setActiveImage = function (img) {
+    $scope.activeImage = img
+  }
+})

@@ -1,6 +1,6 @@
 <!-- Product Details 2
 ============================================ -->
-<div class="product-details2 pages">
+<div class="product-details2 pages" ng-init="getMerchandize()">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -17,7 +17,7 @@
 						</div>
 						<!-- Product Image Tab List -->
 						<ul class="pro-image-tab-list-2">
-							<li ng-repeat="img in  selectedItem.images || product.images track by $index" ng-class="{active: activeImage== img}"
+							<li ng-repeat="img in  imageList track by $index" ng-class="{active: activeImage== img}"
 							class=" pointer" ng-click="setActiveImage(img)">
 								<a data-toggle="tab" ><img src="{{img}}" alt="" /></a>
 							</li>
@@ -42,24 +42,25 @@
 									<h1>RM{{selectedItem.price || product.minimum_price}}</h1>
 								</div>
 							</div>
-							<div class="pro-info-avaibility fix">
-								<p>Available: <span>In Stock</span></p>
-							</div>
-							<div class="pro-color-size pro-color-size-2">
-								<div class="pro-color pro-color-2">
-									<h4>Colors:</h4>
-									<!--<span ng-style="{'background-color': item.color}" ng-repeat="item in  currentSize track by $index">{{item.color}}	</span>-->
-									<ul>
-										<li class=" pointer" ng-style="getColor(item.color)" ng-click="setCurrentSize(null, $index)" 
-										ng-repeat="item in  currentSize track by $index"><a>color 1</a></li>
-									</ul>
-								</div>
-								<div class="pro-size pro-size-2">
+
+							<div class="pro-color-size">
+
+
 									<h4>Sizes: </h4>
-									<span style="margin:5px" ng-repeat="(key, data) in product.sizes">
+									<ul>
+									<span style="margin:10px 0px 10px 10px" ng-repeat="(key, data) in product.sizes">
 										<a ng-click="setCurrentSize(product.sizes[key],0)" class='btn btn-primary'>{{key}}</a>
 										</span>
-								</div>
+								    </ul>
+									<h4>Colors:</h4>
+									<!--<span ng-style="{'background-color': item.color}" ng-repeat="item in  currentSize track by $index">{{item.color}}	</span>-->
+									<ul class="color-ul">
+										<li class=" pointer color-li" ng-style="getColor(item.color)" ng-click="setCurrentSize(null, $index)" 
+										ng-repeat="item in  currentSize track by $index"><a></a></li>
+									</ul>
+								
+							
+								
 								<!--<div class="pro-color pro-color-2">
 									<h4>Colors:</h4>
 									<ul>

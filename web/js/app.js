@@ -6,7 +6,8 @@ angular.module('myApp', [
   'app.controller',
   'app.directive',
   'ui.router.metatags',
-  'ngResource'
+  'LocalStorageModule'
+  //'ngResource'
 ])
   .config(['$stateProvider', '$urlRouterProvider', 'UIRouterMetatagsProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, UIRouterMetatagsProvider, $locationProvider) {
     var keywords = 'camdy, camdy app, print, gift, photo, malaysia, print in malaysia, eprint in malaysia,\
@@ -110,98 +111,8 @@ angular.module('myApp', [
           keywords: keywords
         }
 
-      })
-      .state('customize-product', {
-        url: '/product/custom',
-        templateUrl: 'partials/customize.html',
-        controller: 'customizeCtrl'
-      })
-      /*
-                             .state('portfolio', {  //State demonstrating Multiple,named views
-                                  url: "/portfolio",
-                                  views: {
-                                      ""  :    { templateUrl: "portfolio.html" }, //default or parent view
-                                      "view1@portfolio": { template: "Write whatever you want, it's your virtual company." },
-                                      "view2@portfolio": { templateUrl: "clients.html" ,
-                                          controller: function($scope){
-                                                  $scope.clients = ["HP", "IBM", "MicroSoft"]
-                                          }
-                                      }
-                                  }
-                              })
-      */
-
-      .state('custom', {
-        url: '/custom',
-        views: {
-          '': {
-            templateUrl: 'partials/customize.html',
-            controller: 'customizeCtrl'
-
-          },
-          'edit_text': {
-            templateUrl: 'views/text.edit.html',
-            controller: 'TextEditController'
-          },
-          'edit_image': {
-            templateUrl: 'views/images.edit.html',
-            controller: 'ImagesEditController'
-          }
-        }
-      })
-
-      // IMAGES STATES AND NESTED VIEWS ========================================
-      .state('custom.images', {
-        url: '/images',
-        abstract: true,
-        templateUrl: 'views/image.html',
-        controller: 'ImagesController'
-      })
-      .state('custom.images.home', {
-        url: '/home',
-        templateUrl: 'views/images.home.html'
-      })
-      .state('custom.images.clip-art', {
-        url: '/clip-art',
-        templateUrl: 'views/images.clip-art.html',
-        controller: 'ImagesGraphicsController'
-      })
-      .state('custom.images.add-graphic', {
-        url: '/add-graphic/*path',
-        controller: 'ImagesAddGraphicController'
-      })
-      .state('custom.images.upload', {
-        url: '/upload',
-        templateUrl: 'views/images.upload.html',
-        controller: 'ImagesUploadController'
-      })
-      .state('custom.images.my-images', {
-        url: '/my-images',
-        templateUrl: 'views/images.my-images.html',
-        controller: 'ImagesBoxController'
-      })
-      .state('custom.images.edit', {
-        url: '/edit',
-        templateUrl: 'views/images.edit.html',
-        controller: 'ImagesEditController'
-      })
-      // TEXT STATES AND NESTED VIEWS ========================================
-      .state('text', {
-        url: '/text',
-        abstract: true,
-        templateUrl: 'views/viewer.html',
-        controller: 'TextController'
-      })
-      .state('text.add', {
-        url: '/add',
-        templateUrl: 'views/text.add.html'
-      })
-      .state('text.edit', {
-        url: '/edit',
-        templateUrl: 'views/text.edit.html',
-        controller: 'TextEditController'
       });
-
+      
       // use the HTML5 History API
       $locationProvider.html5Mode(true);
   }])
