@@ -1,3 +1,4 @@
+.gitignore
 node_modules
 npm-debug.log
 .vscode
@@ -13,5 +14,3 @@ dump/
 /web_admin
 /myapp
 web.zip
-/printshop
-.gitignore
