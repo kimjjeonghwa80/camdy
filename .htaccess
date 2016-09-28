@@ -15,22 +15,12 @@ ExpiresDefault "access 1 month"
 </IfModule>
 ## EXPIRES CACHING ##
 
-<filesMatch "\.(yml|sqlite|log)$">
-	Order Allow,Deny
-	Deny from all
-</filesMatch>
-
-<IfModule mod_php5.c>
-   php_value upload_max_filesize 40M
-   php_value post_max_size 40M
-</IfModule>
-
-
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin *
 </IfModule>
 
-RewriteEngine On  
+
+ RewriteEngine On  
   # If an existing asset or directory is requested go to it as it is
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d

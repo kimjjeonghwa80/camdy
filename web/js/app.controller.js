@@ -98,51 +98,6 @@ angular.module('app.controller', [])
     $scope.msg = 'PrintShop Detail'
   })
 
-/*
-  .controller('printshopDetailCtrl', function ($scope, $sce, $stateParams, $http, $state, $rootScope) {
-    $http({
-      method: 'GET',
-      url: API_URL + 'merchandise/' + $stateParams.category + '/' + $stateParams.product
-    }).then(function mySuccess (response) {
-      $scope.product = response.data[0]
-      $scope.currentSize = $scope.product.sizes[Object.keys($scope.product.sizes)[0]]
-      $scope.activeImage = $scope.product.images[0];
-      window.localStorage.setItem("selectedItem",$scope.product.images[0]);
-    }, function myError (response) {
-      $scope.product = response.status + response.statusText
-    })
-
-    $scope.setCurrentSize = function (item, index) {
-      if (item) {
-        $scope.activeImage = $scope.product.images[0]
-        $scope.currentSize = item;
-        $scope.selectedItem = null;
-      window.localStorage.setItem("selectedItem",$scope.product.images[0]);                
-      } else {
-        $scope.selectedItem = $scope.currentSize[index]
-        $scope.activeImage = $scope.selectedItem.template_image;
-       // $rootScope.desiredItem = $scope.activeImage;
-      window.localStorage.setItem("selectedItem",$scope.activeImage);        
-      }
-      // console.log($scope.selectedItem)
-
-    }
-
-    $scope.getColor = function (color) {
-      return {
-        'background-color': color + '!important'
-      }
-    }
-
-    $scope.deliberatelyTrustDangerousSnippet = function (htmlString) {
-      return $sce.trustAsHtml(htmlString)
-    }
-
-    $scope.setActiveImage = function (img) {
-      $scope.activeImage = img
-    }
-  })
-  */
 
   .controller('printshopDetailCtrl', function ($scope, $sce,
   $stateParams, $http, $state, $rootScope, localStorageService) {

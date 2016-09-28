@@ -184,6 +184,9 @@ span {
   color: #9b9b9c;
   display: inline-block;
 }
+.breadcrumb {
+  margin-bottom: 30px !important ;
+}
 .navbar-header {
   height: 70px;
 }
@@ -3734,7 +3737,7 @@ span {
   border: 2px solid #9b9b9c;
 }
 .product-details2 {
-  margin: 72px 0 82px;
+  margin: 10px;
 }
 .product-image-2 .pro-image-tab-container {
   display: block;
@@ -3749,12 +3752,15 @@ span {
   width: 100%;
 }
 .pro-image-tab-list-2 {
-  display: block;
+  width: 30%;
+}
+.pro-image-tab-list-2 span {
+  margin: 10px;
   float: left;
-  width: 16.6%;
 }
 .pro-image-tab-list-2 li {
-  margin-bottom: 21px;
+  margin-bottom: 20px;
+  list-style: none;
 }
 .pro-image-tab-list-2 li a {
   display: block;
@@ -3765,7 +3771,7 @@ span {
 .product-info-2 {
   background: #fff none repeat scroll 0 0;
   margin-left: -15px;
-  padding: 55px 45px 34px;
+  padding: 10px;
 }
 .pro-info-cat-2 {
   margin-bottom: 24px;
