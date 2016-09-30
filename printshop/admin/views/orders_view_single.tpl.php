@@ -124,16 +124,17 @@
 			<div class="well">
 					<strong>Customer details</strong>
 					<div class="row">
-						<div class="col-md-4">First name</div>
-						<div class="col-md-4"><?= @$customer_details->firstname ?></div>
-					</div>					
-					<div class="row">
-						<div class="col-md-4">Last name</div>
-						<div class="col-md-4"><?= @$customer_details->lastname ?></div>
-					</div>					
+						<div class="col-md-4">Full name</div>
+						<div class="col-md-4"><?= @$customer_details->fullname ?></div>
+					</div>									
 					<div class="row">
 						<div class="col-md-4">Email</div>
 						<div class="col-md-4"><?= @$customer_details->email ?></div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-4">Mobile</div>
+						<div class="col-md-4"><?= @$customer_details->mobile ?></div>
 					</div>
 					<? if($order->transaction_id) : ?>
 					<div class="row">

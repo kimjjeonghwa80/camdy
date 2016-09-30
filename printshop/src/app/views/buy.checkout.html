@@ -23,23 +23,15 @@
 
                     <div class="row">
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label translate>First Name</label>
-                                <input type="text" class="form-control" name="firstname" ng-model="customer_details.firstname" required ng-minlength="1">
-                                <p ng-show="customerForm.firstname.$invalid && !customerForm.firstname.$pristine" class="help-block">Your name is required.</p>
-                                <p ng-show="customerForm.firstname.$error.minlength" class="help-block">Your first name is too short.</p>
+                                <label translate>Full Name</label>
+                                <input type="text" class="form-control" name="fullname" ng-model="customer_details.fullname" required ng-minlength="1">
+                                <p ng-show="customerForm.fullname.$invalid && !customerForm.fullname.$pristine" class="help-block">Your name is required.</p>
+                                <p ng-show="customerForm.fullname.$error.minlength" class="help-block">Your full name is too short.</p>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label translate>Last Name</label>
-                                <input type="text" class="form-control" name="lastname" ng-model="customer_details.lastname" ng-minlength="1"/>
-                                <p ng-show="customerForm.lastname.$error.word" class="help-block">Your name may only contain letters and spaces</p>
-                                <p ng-show="customerForm.firstname.$error.minlength" class="help-block">Your last name is too short.</p>
-                            </div>
-                        </div>
 
                     </div>   
                     <div class="row">
@@ -51,7 +43,22 @@
                                 <p ng-show="customerForm.email.$error.email" class="help-block">This doesn't appear to be a valid email</p>
                             </div>
                         </div>       
-                    </div>    
+                    </div>   
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label translate>Mobile Number</label>
+                                <input type="number" class="form-control" name="mobile" ng-model="customer_details.mobile" required ng-minlength="1">
+                                <p ng-show="customerForm.mobile.$invalid && !customerForm.mobile.$pristine" class="help-block">Your mobile number is required.</p>
+                                <p ng-show="customerForm.mobile.$error.minlength" class="help-block">Your phone is too short.</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
 
                     <hr />
                     <h3 translate>Delivery address</h3>
