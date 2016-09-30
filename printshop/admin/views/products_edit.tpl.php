@@ -141,8 +141,9 @@
     <thead>
         <tr>
             <th class="col-md-1"></th>
-            <th >Variant name</th>
-            <th ng-repeat="orientation in form.orientations">{{orientation.name}}</th>
+            <th class="col-md-2">Variant name</th>
+            <!-- <th ng-repeat="orientation in form.orientations">{{orientation.name}}</th> -->
+            <th class="col-md-9">Orientation</th>
         </tr>
     </thead>
     <tbody>
@@ -151,10 +152,10 @@
                 <a href="" ng-click="moveVariantUp(variant)"><i class="fa fa-arrow-up"></i></a>
                 <a href="" ng-click="moveVariantDown(variant)"><i class="fa fa-arrow-down"></i></a>
             </td>
-            <td >
+            <td>
                 <!--<input type="text" class="form-control" ng-model="variant.name"><br />-->
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-4">
                         <select ng-change="updateVariant(key, variant, choice)" ng-model="variant.name" ng-options="choice for choice in variantChoices"  style="width: 110px;"></select><br style="clear: both"/>
 						<!--<div ng-repeat="hex in variant.hexes" style="background:{{hex}};width: 11px;height: 11px;display: block;border: 1px solid #000;"></div>-->
 						<div ng-repeat="hex in variant.colors track by $index" style="float:left; background:{{hex}};width: 11px;height: 11px;display: block;border: 1px solid #000;"></div>
@@ -168,21 +169,25 @@
                 <br />
                 <!--<input type="text" class="form-control" ng-model="variant.price" placeholder="1000"><br />-->
             </td>
-            <td ng-repeat="orientation in form.orientations" class="text-center">
+            <td>
 
+               <div ng-repeat="orientation in form.orientations" class="text-center" style="float: left; margin:5px;">
+                {{orientation.name}}
                 <div flow-init="{singleFile:true, target: '<?= site_url('products/upload/') ?>', query:{slug:'<?= $product['slug'] ?>', variant:variant.name, orientation:orientation.name}}" flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,jpg:1}[$file.getExtension()]" flow-file-success="uploader.controllerFn($flow, $file, $message, variant, orientation)">
 
                     <div class="" ng-show="!$flow.files.length">
                         <img ng-if="variant.orientations[orientation.name]" ng-src="<?= base_url('../data/images/') ?>{{variant.orientations[orientation.name]}}"  style="width: 80px"/>
                     </div>
 
-                    <div class="" ng-show="$flow.files.length" style="width: 120px; height: 120px; display: block; background: #000;">
+                    <div class="" ng-show="$flow.files.length" style="width: 120px; height: 120px; display: inline; background: #000;">
                         <img flow-img="$flow.files[0]" style="max-width: 120px;max-height: 120px;" />
                     </div>
                     <div>
                         <button class="btn btn-primary btn-sm" ng-show="!$flow.files.length" flow-btn>Select image</button>
                         <button class="btn btn-primary btn-sm" ng-show="$flow.files.length" flow-btn>Change</button>
                     </div>
+
+                </div>
                 </div>
 
             </td>
