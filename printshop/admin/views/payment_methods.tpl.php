@@ -7,6 +7,8 @@
 	}
 </style>
 <h3>Payment methods</h3><br /><br />
+
+
 <form role="form" class="form-horizontal ng-pristine ng-valid" action="#" method="POST" ng-controller="PaymentMethodsController">
 	<div class="row">
 		<div class="col-md-1">
@@ -20,6 +22,8 @@
 			<div class="status-disabled" ng-show="paymentMethods.stripe.status == 0"><i class="fa fa-circle"></i>&nbsp;&nbsp;Disabled</div>
 		</div>	
 	</div>		
+
+<!-- STRIPE PAYMENT -->
 	<div class="row">
 		<div class="col-md-11 col-md-offset-1">
 			
@@ -44,7 +48,7 @@
 	</div>
 	<hr />
 
-
+<!-- PAYPAL PAYMENT -->
 	<div class="row">
 		<div class="col-md-1">
 			<i class="fa fa-cc-paypal fa-3" style="font-size: 34px;"></i>
@@ -58,6 +62,7 @@
 		</div>	
 	</div>
 	
+
 	<div class="row">
 		<div class="col-md-11 col-md-offset-1">
 			
@@ -95,6 +100,9 @@
 	
 	<hr />
 
+
+
+<!-- BANK TRANSFER PAYMENT -->
 	<div class="row">
 		<div class="col-md-1">
 			<i class="fa fa-bank fa-3" style="font-size: 34px;"></i>
@@ -107,6 +115,8 @@
 			<div class="status-disabled" ng-show="paymentMethods.bank_transfer.status == 0"><i class="fa fa-circle"></i>&nbsp;&nbsp;Disabled</div>
 		</div>	
 	</div>
+
+
 	<div class="row">
 		<div class="col-md-11 col-md-offset-1">
 			
@@ -137,6 +147,49 @@ Thank you!
 		</div>
 	</div>
 	<br />
+
+<!-- BILLPLZ PAYMENT -->
+	<div class="row">
+		<div class="col-md-2">
+			<img src="https://s22.postimg.org/6u1sfia9d/billplz.jpg" />
+		</div>
+		<div class="col-md-6" ng-class="{'payment-selected':paymentMethods.billplz.status}">
+			BILLPLZ &nbsp;&nbsp;&nbsp;<a href="" ng-show="paymentMethods.billplz.status == 1" ng-click="paymentMethods.billplz.status = 0" class="real-link">Disable</a><a href="" ng-show="paymentMethods.billplz.status == 0" ng-click="paymentMethods.billplz.status = 1" class="real-link">Enable</a>
+		</div>			
+		<div class="col-md-2 pull-right">
+			<div class="status-enabled" ng-show="paymentMethods.billplz.status == 1"><i class="fa fa-check"></i>&nbsp;&nbsp;Enabled</div>
+			<div class="status-disabled" ng-show="paymentMethods.billplz.status == 0"><i class="fa fa-circle"></i>&nbsp;&nbsp;Disabled</div>
+		</div>	
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">API KEY</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" ng-model="paymentMethods.billplz.api_key">
+						</div>
+					</div>			
+					<div class="form-group">
+						<label class="col-sm-3 control-label">COLLECTION ID</label>
+						<div class="col-sm-6">
+						    <input type="text" class="form-control" ng-model="paymentMethods.billplz.collection_id">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<br />
+
+
+
+<!-- SAVING PAYMENT -->	
 		<div class="row">
 		<div class="col-md-11 col-md-offset-1">
 			

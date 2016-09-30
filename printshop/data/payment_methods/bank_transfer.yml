@@ -3,4 +3,4 @@ instructions: "Please send us a payment to the following details:\n\nSort code: 
 hidden_keys: null
 name: 'Bank transfer'
 position: 3
-status: 1
+status: 0

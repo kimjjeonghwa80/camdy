@@ -5,4 +5,4 @@ paypal_environment: sandbox
 hidden_keys: paypal_signature
 name: PayPal
 position: 2
-status: 1
+status: 0
