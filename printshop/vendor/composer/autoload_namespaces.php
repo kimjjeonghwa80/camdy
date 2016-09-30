@@ -18,6 +18,7 @@ return array(
     'PayPal' => array($vendorDir . '/paypal/sdk-core-php/lib'),
     'Moontoast\\Math' => array($vendorDir . '/moontoast/math/src'),
     'Michelf' => array($vendorDir . '/michelf/php-markdown'),
+    'Kidino\\Billplz' => array($vendorDir . '/kidino/billplz/src'),
     'Illuminate\\Support' => array($vendorDir . '/illuminate/support'),
     'Illuminate\\Events' => array($vendorDir . '/illuminate/events'),
     'Illuminate\\Database' => array($vendorDir . '/illuminate/database'),

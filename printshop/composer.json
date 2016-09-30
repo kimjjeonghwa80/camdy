@@ -25,6 +25,7 @@
 		"phpmailer/phpmailer": "5.2.9",
 		"paypal/merchant-sdk-php": "3.8.107",
 		"bdelespierre/underscore": "dev-master",
-        "cocur/slugify": "~1.0"
+        "cocur/slugify": "~1.0",
+        "kidino/billplz": "^0.1.1"
     }
 }

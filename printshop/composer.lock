@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "71849e8e73c34e1d7b56e14ae4ef6b7f",
+    "hash": "d8327b99c9202ccdfab19d706acc52f4",
+    "content-hash": "98246026710ea7ea5f0ed0972188da9e",
     "packages": [
         {
             "name": "bdelespierre/underscore",
@@ -16,7 +17,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bdelespierre/underscore.php/zipball/f9b328bc4d02f2edb0c43fe275764469a3fc7318",
+                "url": "https://api.github.com/repos/bdelespierre/underscore.php/zipball/639041f28224b52fd0cb3f0cc3000fb63f7cce48",
                 "reference": "f9b328bc4d02f2edb0c43fe275764469a3fc7318",
                 "shasum": ""
             },
@@ -360,6 +361,45 @@
             "time": "2014-09-25 16:51:21"
         },
         {
+            "name": "kidino/billplz",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kidino/billplz.git",
+                "reference": "8f76d3ea50f06a9c22ad0b381c4ddb4288795dae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kidino/billplz/zipball/8f76d3ea50f06a9c22ad0b381c4ddb4288795dae",
+                "reference": "8f76d3ea50f06a9c22ad0b381c4ddb4288795dae",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kidino\\Billplz": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Iszuddin Ismail",
+                    "email": "dino@websegera.my"
+                }
+            ],
+            "description": "PHP library for BillPlz API, Malaysia's online payment",
+            "homepage": "https://github.com/kidino/billplz",
+            "keywords": [
+                "Malaysia",
+                "api",
+                "billplz"
+            ],
+            "time": "2016-01-02 11:52:02"
+        },
+        {
             "name": "michelf/php-markdown",
             "version": "1.4.1",
             "source": {
@@ -415,12 +455,12 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/moontoast/math.git",
+                "url": "https://github.com/ramsey/moontoast-math.git",
                 "reference": "fce28a9d1e73e73376cb44e5e581675d15fbe2f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moontoast/math/zipball/fce28a9d1e73e73376cb44e5e581675d15fbe2f3",
+                "url": "https://api.github.com/repos/ramsey/moontoast-math/zipball/fce28a9d1e73e73376cb44e5e581675d15fbe2f3",
                 "reference": "fce28a9d1e73e73376cb44e5e581675d15fbe2f3",
                 "shasum": ""
             },
@@ -738,12 +778,12 @@
             "version": "2.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ramsey/uuid.git",
+                "url": "https://github.com/ramsey/rhumsaa-uuid.git",
                 "reference": "cca98c652cac412c9c2f109c69e5532f313435fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/cca98c652cac412c9c2f109c69e5532f313435fc",
+                "url": "https://api.github.com/repos/ramsey/rhumsaa-uuid/zipball/cca98c652cac412c9c2f109c69e5532f313435fc",
                 "reference": "cca98c652cac412c9c2f109c69e5532f313435fc",
                 "shasum": ""
             },
