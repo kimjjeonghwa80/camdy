@@ -3147,7 +3147,7 @@ angular.module('app').controller('ProductSelectionController', function( $scope,
             });
             
 
-            $state.go('app.product.home');
+           // $state.go('app.product.home');
         });
 
 	};

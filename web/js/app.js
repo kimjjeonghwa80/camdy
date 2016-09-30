@@ -31,7 +31,7 @@ angular.module('myApp', [
       .setOGURL(true)
 
     // For any unmatched url, send to /business
-    $urlRouterProvider.otherwise('blog')
+    $urlRouterProvider.otherwise('printshop')
 
     $stateProvider
       .state('printshop', { // State demonstrating Nested views

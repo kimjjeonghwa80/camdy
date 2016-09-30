@@ -548,6 +548,7 @@ app.controller('PrintController', function ($scope, $modalInstance, $http, index
 		success(function(data, status, headers, config) {
 			//console.log(data);
 			if(data.status == true) {
+			
 				window.location.href = '<?= base_url('') ?>../'+data.path;
 			} else {
 				alert(data.msg);
@@ -558,6 +559,8 @@ app.controller('PrintController', function ($scope, $modalInstance, $http, index
 		});
 		
 	};
+
+
 		
 	$scope.printingPDF = false;
 	$scope.printPDF = function() {

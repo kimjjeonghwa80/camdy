@@ -2,8 +2,12 @@
 ============================================ -->
 <div class="product-details2 pages" ng-init="getMerchandize()">
 	<div class="container">
-		<div class="row">
-		
+		<div class="row text-center">
+		  <a class="btn btn-primary btn-lg" ui-sref="printshop">
+            <i class="fa fa-home fa-fw fa-3x" aria-hidden="true"></i>BACK TO PRINTSHOP</a>
+
+         </div>
+         <div class="row">
 			<div class="col-sm-12">
 				
 				<h1>{{product.name}}</h1>
@@ -57,13 +61,16 @@
 										ng-repeat="item in  currentSize track by $index"><a></a></li>
 									</ul>
 								
-								<div class="pro-info-actions-2 text-center fix">
+								<div class="pro-info-actions-2 text-center fix" ng-show="product.web_slug">
 
-							<a href="/printshop/dist/#/product/selection/{{product.pk}}/white">
+
+							<a href="/printshop/dist/#/product/selection/{{product.web_slug}}/white">
 								<button  class="pro-info-addcart" >
 							<i class="mo-cart"></i>CLICK HERE TO CUSTOMIZE
 								</button>
 							</a>	
+
+
 								</div>
 
 							</div>
