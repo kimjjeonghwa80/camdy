@@ -44,10 +44,11 @@ if (!$builder->hasTable('orders')) {
 	$builder->create('orders', function($table)
 	{
 		$table->increments('id');
-	
+		$table->string('fullname')->nullable();
 		$table->string('firstname')->nullable();
 		$table->string('lastname')->nullable();
 		$table->string('email')->nullable();
+		$table->string('mobile')->nullable();
 		$table->string('uuid')->nullable();
 		$table->string('currency')->nullable();
 		$table->decimal('subtotal', 5, 2)->nullable();
@@ -87,6 +88,8 @@ if (!$builder->hasColumn('orders', 'payment_method')) {
 		$table->string('payment_status')->nullable()->after('info'); // paid, cancelled, awaiting payment, refunded
 		$table->string('fulfillment_status')->nullable()->after('info'); // Awaiting Processing, Processing, Shipped, Delivered, Will Not Deliver, Returned
 		$table->longText('activity')->nullable()->after('info'); // store any activity for the order
+		$table->string('fullname')->nullable()->after('lastname');
+		$table->string('mobile')->nullable()->after('email'); 
 	});
 	sleep(3); //give it time to update
 }
